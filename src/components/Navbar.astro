@@ -7,18 +7,31 @@ import Button from "./Button.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const routes = [
+    {
+        name: t("about"),
+        url: `/${lang != defaultLang && lang+"/"}about`
+    },
+    {
+        name: t("contact"),
+        url: `/${lang != defaultLang && lang+"/"}contact`
+    }
+]
+
 ---
 
-<nav id="nav">
-    <div id="test">
-        <div id="logoContainer">
+<nav class="nav">
+    <div class="wrapper">
+        <div class="logoContainer">
             <Image src={LogoDark} alt="Logo" width={40} height={40}/>
             <span>Vitresoft</span>
         </div>
 
-        <div id="redirectsContainer">
-            <a class="navButton" href=`/${lang != defaultLang && lang+"/"}about`>{t("about")}</a>
-            <Button id="navigationContactButton" theme="Light">{t("contact")}</Button>
+        <div class="redirectsContainer">
+            {routes.map((route) => {
+                return <a class="navButton" href={route.url}>{route.name}</a>
+            })}
         </div>
     </div>
     
@@ -31,14 +44,14 @@ const t = useTranslations(lang);
 </script>
 
 <style>
-    #logoContainer{
+    .logoContainer{
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 10px;
     }
 
-    #nav{
+    .nav{
         width: 100%;
         height: 66px;
         display: flex;
@@ -46,7 +59,7 @@ const t = useTranslations(lang);
         justify-content: center;
     }
 
-    #test{
+    .wrapper{
         width: 98%;
         height: 100%;
         padding: 0px 10px;
@@ -55,7 +68,7 @@ const t = useTranslations(lang);
         justify-content: space-between;
     }
 
-    #redirectsContainer{
+    .redirectsContainer{
         display: flex;
         flex-direction: row;
         align-items: center;
