@@ -1,0 +1,35 @@
+---
+interface Props{
+    id: string;
+    fontSize?: string;
+    theme: "Light" | "Dark";
+}
+
+const { id, theme, fontSize }: Props = Astro.props;
+
+---
+<button id={id} class=`${theme} button` style=`font-size: ${fontSize ? fontSize : "1em"}`>
+    <slot/>
+</button>
+
+
+
+<style>
+    .Dark{
+        color: white;
+        background-color: rgba(12, 12, 12, 1);
+        box-shadow: 0px 5px 5px rgba(12, 12, 12, 1);
+    }
+
+    .Light{
+        color: rgba(12, 12, 12, 1);
+        background-color: rgba(225, 230, 241, 1);
+    }
+
+    .button{
+        border-radius: 10px;
+        border: none;
+        padding: 20px;
+        font-size: test;
+    }
+</style>

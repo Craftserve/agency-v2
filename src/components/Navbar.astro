@@ -1,0 +1,69 @@
+---
+import { Image } from "astro:assets";
+import LogoDark from "../assets/LogoDark.svg";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { defaultLang } from "../i18n/ui";
+import Button from "./Button.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<nav id="nav">
+    <div id="test">
+        <div id="logoContainer">
+            <Image src={LogoDark} alt="Logo" width={40} height={40}/>
+            <span>Vitresoft</span>
+        </div>
+
+        <div id="redirectsContainer">
+            <a class="navButton" href=`/${lang != defaultLang && lang+"/"}about`>{t("about")}</a>
+            <Button id="navigationContactButton" theme="Light">{t("contact")}</Button>
+        </div>
+    </div>
+    
+</nav>
+
+<script>
+    document.getElementById("navigationContactButton")?.addEventListener("click", () => {
+        // do formularzu z kontaktem
+    })
+</script>
+
+<style>
+    #logoContainer{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #nav{
+        width: 100%;
+        height: 66px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #test{
+        width: 98%;
+        height: 100%;
+        padding: 0px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #redirectsContainer{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .navButton{
+        color: black;
+        text-decoration: none;
+    }
+</style>
