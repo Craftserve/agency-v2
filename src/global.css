@@ -1,12 +1,12 @@
 :root {
-    --black: "0C0C0C";
-    --primary: "6809EE";
-    --border: "E1E6F1";
-    --gray: "E1E6F1";
-    --success: "73FF8D";
-    --warning: "F9FF3C";
-    --danger: "FF264A";
-    --font-ubuntu: "ubuntu";
+    --black: #0C0C0C;
+    --primary: #6809EE;
+    --border: #E1E6F1;
+    --gray: #E1E6F1;
+    --success: #73FF8D;
+    --warning: #F9FF3C;
+    --danger: #FF264A;
+    --font-ubuntu: ubuntu;
 }
 
 html,
