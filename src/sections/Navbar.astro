@@ -3,7 +3,6 @@ import { Image } from "astro:assets";
 import LogoDark from "../assets/LogoDark.svg";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import { defaultLang } from "../i18n/ui";
-import Button from "./Button.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);

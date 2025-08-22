@@ -2,11 +2,11 @@
 interface Props{
     id: string;
     fontSize?: string;
-    variant: "primary" | "secondary";
+    variant: "primary" | "secondary" | "outlined";
 }
 
 const { id, variant, fontSize }: Props = Astro.props;
-const buttonClass = variant === 'primary' ? "dark" : "light"
+const buttonClass = variant === 'primary' ? "dark" : variant === "secondary" ? "light" : "outlined"
 
 ---
 <button type="button" id={id} class=`button ${buttonClass}` style=`font-size: ${fontSize ? fontSize : "1em"}`>
@@ -25,10 +25,17 @@ const buttonClass = variant === 'primary' ? "dark" : "light"
         background-color: rgba(225, 230, 241, 1);
     }
 
+    .outlined{
+        color: var(--primary);
+        background-color: transparent;
+        border: 2px solid var(--primary) !important;
+    }
+
     .button{
         border-radius: 10px;
         border: none;
-        padding: 20px;
+        padding: 15px 30px;
         cursor: pointer;
+        font-weight: 700;
     }
 </style>
