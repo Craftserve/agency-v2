@@ -9,6 +9,19 @@
 	</head>
 	<body>
 		<slot />
+		<script>
+			import { getLangForRedirect } from "../i18n/utils";
+			const lang = getLangForRedirect(new URL(window.location.href));
+
+			const userLang = navigator.language || "pl";
+
+			if (!userLang.startsWith("pl") && lang !== "en") {
+				const meta = document.createElement("meta");
+				meta.httpEquiv = "refresh";
+				meta.content = "0;url=/en/";
+				document.head.appendChild(meta);
+			}
+		</script>
 	</body>
 </html>
 
