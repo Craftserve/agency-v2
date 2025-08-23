@@ -1,5 +1,4 @@
 ---
-import Card from '../../components/Card.astro';
 import Footer from '../../sections/Footer.astro';
 import Navbar from '../../sections/Navbar.astro';
 import Layout from '../../layouts/Layout.astro';
@@ -21,10 +20,16 @@ import Hero from '../../sections/Hero.astro';
 
 <style>
 	.infoContainer{
-		width: 1000px;
+		max-width: 1000px;
 	}
 
 	@media only screen and (max-width: 1000px){
+		.infoContainer{
+			width: 100%;
+		}
+	}
+
+	@media only screen and (min-width: 1116px){
 		.infoContainer{
 			width: 100%;
 		}
