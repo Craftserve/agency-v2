@@ -4,13 +4,16 @@ interface Props {
     variant: "light" | "dark";
     title?: string;
     color?: string;
+    fullWidth?: boolean;
+    maxWidth?: string;
 }
 
-const { variant, title, color }: Props = Astro.props;
+const { variant, title, color, fullWidth, maxWidth }: Props = Astro.props;
 
+const addStyles = `${color ? ("color: " + color + ";") : ""}${fullWidth ? "width: 100%;" : ""}${maxWidth ? ("max-width: " + maxWidth + ";") : ""}`
 ---
 
-<div class=`wrapper ${variant}` style=`color: ${color};`>
+<div class=`wrapper ${variant}` style={addStyles}>
     <div class="circlesBar">
         <div class="circle green" />
         <div class="circle yellow" />
@@ -37,7 +40,8 @@ const { variant, title, color }: Props = Astro.props;
         overflow-y: hidden;
         backdrop-filter: blur(32px);
         box-shadow: 0px 10px 5px rgba(0,0,0,0.1);
-        
+        width: 100%;
+        height: auto;
     }
 
     .circlesBar{
@@ -73,7 +77,7 @@ const { variant, title, color }: Props = Astro.props;
         padding: 10px 0px;
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 10px;
     }
 
     .title{
@@ -83,7 +87,7 @@ const { variant, title, color }: Props = Astro.props;
 
     .light{
         background-color: rgba(225,230,241,0.3);
-        color: var(--black);
+        color: white;
     }
 
     .dark{

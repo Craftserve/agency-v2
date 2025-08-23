@@ -1,0 +1,138 @@
+---
+import Card from "../components/Card.astro";
+import Row from "../components/Row.astro";
+
+const rowData = [
+    {  id: 1, title: "Event management", text: "from £2,000" },
+    {  id: 2, title: "Event management", text: "from £2,000" },
+    {  id: 3, title: "Event management", text: "from £2,000" },
+    {  id: 4, title: "Event management", text: "from £2,000" },
+    {  id: 5, title: "Event management", text: "from £2,000" },
+];
+---
+<div class="wrapper">
+    <div class="imageWrapper" />
+    <div class="firstCard card">
+        <Card variant="dark" title="Lorem ipsum" maxWidth="250px">
+            <span>Sketch circle, ellipse, oval. Circular doodle frame, hand drawn pen stroke</span>
+            <span>Sketch circle, ellipse, oval. Circular doodle frame, hand drawn pen stroke</span>
+        </Card>
+    </div>
+    <div class="secondCard card">
+        <Card variant="light" title="Lorem ipsum" maxWidth="250px">
+            <span>Sketch circle, ellipse, oval. Circular doodle frame, hand drawn pen stroke</span>
+            <span>Sketch circle, ellipse, oval. Circular doodle frame, hand drawn pen stroke</span>  
+        </Card>
+        
+    </div>
+    <div class="thirdCard card">
+        <Card variant="dark">
+            <div class="items">
+                {rowData.map((item) => (
+                    <Row id={item.id}>
+                        <span slot="left">{item.title}</span>
+                        <span slot="right" style={{fontWeight: "bold"}}>{item.text}</span>
+                    </Row>
+                ))}
+                
+            </div>
+        </Card>
+    </div>
+</div>
+
+<style>
+    .wrapper{
+        display: flex;
+        padding: 20px;
+        width: 100%;
+        height: 500px;
+        position: relative;
+    }
+
+    .imageWrapper {
+        background-image: url('../assets/BG.svg');
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        border-radius: 30px;
+
+        width: 100%;
+        height: 100%;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+    
+    .card {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .firstCard {
+        top: 30;
+        left: 30;
+        width: max-content;
+        max-width: 283px;
+    }
+
+    .secondCard {
+        top: 35%;
+        left: 89%;
+        transform: translateX(-50%) translateY(-50%);
+        width: max-content;
+        max-width: 283px;
+    }
+    
+    .thirdCard {
+        top: 65%;
+        left: 51.5%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 450px;
+    }
+
+    .items {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        gap: 5px;
+    }
+
+    @media only screen and (max-width: 1115px){
+        .wrapper {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            height: max-content;
+            width: 90%;
+        }
+
+        .imageWrapper{
+            width: 90%;
+            background-size: cover;
+        }
+        
+        .card{
+            width: max-content;
+            width: unset;
+            position: unset;
+            transform: unset;
+        }
+
+        .thirdCard{
+            min-width: 60%;
+        }
+
+    }   
+</style>

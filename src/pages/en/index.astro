@@ -3,15 +3,17 @@ import Footer from '../../sections/Footer.astro';
 import Navbar from '../../sections/Navbar.astro';
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../sections/Hero.astro';
+import Offers from '../../sections/Offers.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Navbar />
+	<Navbar client:load />
 	<div class="infoContainer">
 		<Hero />
+		<Offers />
 	</div>
 	
 	<Footer />
@@ -21,17 +23,10 @@ import Hero from '../../sections/Hero.astro';
 <style>
 	.infoContainer{
 		max-width: 1000px;
-	}
-
-	@media only screen and (max-width: 1000px){
-		.infoContainer{
-			width: 100%;
-		}
-	}
-
-	@media only screen and (min-width: 1116px){
-		.infoContainer{
-			width: 100%;
-		}
+		width: 100%;
+		height: max-content;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 </style>

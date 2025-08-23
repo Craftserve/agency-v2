@@ -2,7 +2,6 @@
 import { Image } from "astro:assets";
 import LogoDark from "../assets/LogoDark.svg";
 import { getLangFromUrl, getRoutes, useTranslations } from "../i18n/utils";
-import { defaultLang } from "../i18n/ui";
 import Link from "../components/Link.astro";
 
 const lang = getLangFromUrl(Astro.url);
@@ -42,6 +41,7 @@ const routes = getRoutes(Astro.url);
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-top: 5px;
     }
 
     .wrapper{
