@@ -9,6 +9,19 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const routes = getRoutes(Astro.url);
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
+import Row from "../components/Row.astro";
+
+
+const rowData = [
+    {  id: 1, title: "Event management", text: "from £2,000" },
+    {  id: 2, title: "Event management", text: "from £2,000" },
+    {  id: 3, title: "Event management", text: "from £2,000" },
+    {  id: 4, title: "Event management", text: "from £2,000" },
+    {  id: 5, title: "Event management", text: "from £2,000" },
+];
+
 ---
 
 <div class="wrapper">
@@ -30,6 +43,37 @@ const routes = getRoutes(Astro.url);
     </div>
     <Image class="imageContainer" src={starsIconGroup} alt="stars"/>
 </div>
+<div class="offerSection">
+    <div class="imageWrapper">
+        <div class="firstCard card">
+            <Card variant="dark" title="Lorem ipsum">
+                Sketch circle, ellipse, oval. Circular doodle frame, hand drawn pen stroke <br><br>
+                Sketch circle, ellipse, oval. Circular doodle frame, hand drawn pen stroke  
+            </Card>
+        </div>
+        <div class="secondCard card">
+            <Card variant="light" title="Lorem ipsum">
+                Sketch circle, ellipse, oval. Circular doodle frame, hand drawn pen stroke <br><br>
+                Sketch circle, ellipse, oval. Circular doodle frame, hand drawn pen stroke  
+            </Card>
+            
+        </div>
+        <div class="thirdCard card">
+        <Card variant="dark">
+                <div class="items">
+                    {rowData.map((item) => (
+                        <Row id={item.id}>
+                            <span slot="left">{item.title}</span>
+                            <span slot="right" style={{fontWeight: "bold"}}>{item.text}</span>
+                        </Row>
+                    ))}
+                    
+                </div>
+            </Card>
+        </div>
+    </div>
+</div>
+
 
 <style>
     .wrapper{
@@ -69,6 +113,86 @@ const routes = getRoutes(Astro.url);
         width: 400px;
         height: 400px;
     }
+
+    .offerSection {
+        height: fit-content;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .imageWrapper {
+        background-image: url('../assets/BG.svg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 30px;
+    }
+    
+    .card {
+        width: 250px;
+        position: absolute;
+    }
+
+    .thirdCard {
+        width: 450px !important;
+    }
+
+    .items {
+        height: 100%;
+        width: 100%;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        gap: 5px;
+    }
+
+        @media only screen and (max-width: 1115px){
+        .imageWrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            width: 90%;
+            height: fit-content;
+            padding: 10px 5px;
+            gap: 5px;
+        }
+
+        .card {
+            position: unset;
+        }
+    }   
+
+    @media only screen and (min-width: 1116px){
+        .imageWrapper {
+            position: relative;
+            width: 100%;
+            height: 600px;
+        }
+
+        .firstCard {
+            top: 30px;
+            left: 30px;
+        }
+
+        .secondCard {
+            top: 17%;
+            left: 80%;
+        }
+        
+        .thirdCard {
+            top: 35%;
+            left: 32%;
+        }
+    }   
+
+    
 
     @media only screen and (max-width: 1000px){
         .imageContainer{
