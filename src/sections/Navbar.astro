@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import LogoDark from "../assets/LogoDark.svg";
 import { getLangFromUrl, getRoutes, useTranslations } from "../i18n/utils";
 import Link from "../components/Link.astro";
+import { Icon } from "astro-icon/components";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -18,22 +19,24 @@ const routes = getRoutes(Astro.url);
             <span style="font-weight: 700;">Vitresoft</span>
         </div>
 
-        <div class="redirectsContainer">
+        <div class="hamburger-menu" id="hamburger-menu-container">
             {routes.map((route) => {
                 return <Link variant="blank" href={route.url}>{route.name}</Link>
             })}
         </div>
+        <button type="button" class="hamburger-button" id="hamburger-btn">
+            <Icon class="hamburger-icon" name="tabler:menu-2" />
+        </button>
     </div>
     
 </nav>
-
+<script>
+    document.getElementById("hamburger-btn")?.addEventListener("click", () => {
+        document.getElementById("hamburger-menu-container")?.classList.toggle("hamburger-menu-open");
+    });
+</script>
 <style>
-    .logoContainer{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 10px;
-    }
+   
 
     .nav{
         width: 100%;
@@ -41,22 +44,72 @@ const routes = getRoutes(Astro.url);
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: 5px;
     }
 
-    .wrapper{
-        width: 98%;
+      .wrapper{
+        width: 100%;
         height: 100%;
-        padding: 0px 10px;
+        padding: 15px 10px 5px;
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
 
-    .redirectsContainer{
+     .logoContainer{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+  
+
+    .hamburger-menu{
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 20px;
+    }
+    
+    .hamburger-icon {
+        font-size: 30px;
+    }
+
+    .hamburger-button {
+        display: none;
+        padding: 5px;
+        border: 0;
+        border-radius: 10px;
+        background-color: transparent;
+        transition: ease-in-out .8s;
+    }
+
+    .hamburger-button:hover {
+        background-color: var(--gray);
+        transition: backgroundColor ease .7s;
+    }
+
+    @media only screen and (max-width: 768px){
+        .hamburger-button {
+            display: block;
+        }
+
+        .hamburger-menu{
+            background-color: var(--gray);
+            width: 100%;
+            position: fixed;
+            top: 66px;
+            right: 0;
+            origin: top;
+            overflow: hidden;
+            max-height: 0px;
+            transition: .6s;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 500;
+        }
+    }
+
+    .hamburger-menu-open {
+        max-height: 999px;
     }
 </style>
