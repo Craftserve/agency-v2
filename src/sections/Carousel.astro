@@ -64,13 +64,18 @@ import LogoDark from "../assets/LogoDark.svg";
 
     .embla__slide {
         flex: 0 0 10%;
-        min-width: 0;
-        border: 1px solid var(--black);
-        padding: 50px 100px;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-left: 10px;
+
+        min-width: 0;
+
+        border: 1px solid var(--black);
+        padding: 50px 100px;
         border-radius: 20px;
+    }
+
+    .embla__slide:not(:first-child){
+        margin-left: 20px;
     }
 </style>
