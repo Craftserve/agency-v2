@@ -3,13 +3,14 @@
 interface Props{
     href: string | URL;
     variant: "blank" | "primary" | "secondary" | "outlined";
+    fullWidth?: boolean;
 }
 
-const { href, variant } = Astro.props;
+const { href, variant, fullWidth } = Astro.props;
 
 ---
 
-<a class=`link ${variant}` href={href}>
+<a class=`link ${variant}` href={href} style=`${fullWidth && "width: 100%;"};`>
     <slot/>
 </a>
 
@@ -27,6 +28,7 @@ const { href, variant } = Astro.props;
         justify-content: center;
         gap: 5px;
         min-width: 80px;
+        width: max-content;
     }
 
     .primary{ /* dark */
@@ -45,7 +47,7 @@ const { href, variant } = Astro.props;
         background-color: transparent;
         border: 2px solid var(--primary) !important;
     }
-
+ 
     .blank{
         color: var(--black);
     }

@@ -8,6 +8,7 @@ export const ui = {
         "joinus": "Join us",
         "learnmore": "learn more",
         "aboutus": "About us",
+        "header": "Today is your| day to grow| in ideas."
     },
     "pl-PL": {
         "example": "test po polsku",
@@ -16,5 +17,6 @@ export const ui = {
         "joinus": "Dołącz do nas",
         "learnmore": "dowiedz się",
         "aboutus": "Więcej o nas",
+        "header": "Dziś jest Twój| dzień, aby urosnąć| w ideach."
     }
 } as const;

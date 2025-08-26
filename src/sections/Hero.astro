@@ -10,12 +10,18 @@ const t = useTranslations(lang);
 
 const routes = getRoutes(Astro.url);
 
+const header = t("header").split("|");
+
 
 ---
 
 <div class="wrapper">
     <div class="infoContainer">
-        <span class="title">Dziś jest Twój <br /> dzień, aby urosnąć <br /> w ideach</span>
+        <span class="title">
+            {header.map((chunk) => {
+                return <>{chunk} <br /></>
+            })}
+        </span>
         <div class="buttonsContainer">
             <Link variant="primary" href={routes[0].url}>
                 <Icon name="uil:phone" width={30} height={30} />
