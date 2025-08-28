@@ -1,4 +1,6 @@
 ---
+import { undefined } from 'astro:schema';
+
 
 interface Props{
     href: string | URL;
@@ -8,7 +10,7 @@ interface Props{
 
 const { href, variant, fullWidth = false } = Astro.props as Props;
 
-const isFullWidth = fullWidth && "width: 100%";
+const isFullWidth = fullWidth ? "100%" : "fit-content";
 ---
 
 <a class=`link ${variant}` href={href}>
