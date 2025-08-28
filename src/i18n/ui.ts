@@ -8,7 +8,10 @@ export const ui = {
         "joinus": "Join us",
         "learnmore": "learn more",
         "aboutus": "About us",
-        "header": "Today is your| day to grow| in ideas."
+        "header": "Today is your| day to grow| in ideas.",
+
+        "aboutUrl": "about",
+        "contactUrl": "contact",
     },
     "pl-PL": {
         "example": "test po polsku",
@@ -17,6 +20,9 @@ export const ui = {
         "joinus": "Dołącz do nas",
         "learnmore": "dowiedz się",
         "aboutus": "Więcej o nas",
-        "header": "Dziś jest Twój| dzień, aby urosnąć| w ideach."
+        "header": "Dziś jest Twój| dzień, aby urosnąć| w ideach.",
+
+        "aboutUrl": "o-nas",
+        "contactUrl": "kontakt",
     }
 } as const;

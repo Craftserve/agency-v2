@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import starsIconGroup from "../assets/starsIconGroup.svg";
+import starsIconGroup from "../../public/assets/starsIconGroup.svg";
 import Link from "../components/Link.astro";
 import { getLangFromUrl, getRoutes, useTranslations } from "../i18n/utils";
 import { Icon } from 'astro-icon/components';
@@ -10,15 +10,13 @@ const t = useTranslations(lang);
 
 const routes = getRoutes(Astro.url);
 
-const header = t("header").split("|");
-
-
+const headerContent = t("header").split("|");
 ---
 
 <div class="wrapper">
     <div class="infoContainer">
         <span class="title">
-            {header.map((chunk) => {
+            {headerContent.map((chunk) => {
                 return <>{chunk} <br /></>
             })}
         </span>

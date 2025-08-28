@@ -6,15 +6,16 @@ interface Props{
     fullWidth?: boolean;
 }
 
-const { href, variant, fullWidth } = Astro.props;
+const { href, variant, fullWidth = false } = Astro.props as Props;
 
+const isFullWidth = fullWidth && "width: 100%";
 ---
 
-<a class=`link ${variant}` href={href} style=`${fullWidth && "width: 100%;"};`>
+<a class=`link ${variant}` href={href}>
     <slot/>
 </a>
 
-<style>
+<style define:vars={{isFullWidth}}>
     .link{
         text-decoration: none;
         cursor: pointer;
@@ -28,6 +29,8 @@ const { href, variant, fullWidth } = Astro.props;
         justify-content: center;
         gap: 5px;
         min-width: 80px;
+        
+        width: var(--isFullWidth);
     }
 
     .primary{ /* dark */

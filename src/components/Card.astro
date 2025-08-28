@@ -1,19 +1,19 @@
 ---
+import { undefined } from 'astro:schema';
+
 
 interface Props {
     variant: "light" | "dark";
     title?: string;
     color?: string;
-    fullWidth?: boolean;
     maxWidth?: string;
 }
 
-const { variant, title, color, fullWidth, maxWidth }: Props = Astro.props;
+const { variant, title = undefined, color = "white", maxWidth = "100%" } = Astro.props as Props;
 
-const addStyles = `${color ? ("color: " + color + ";") : ""}${fullWidth ? "width: 100%;" : ""}${maxWidth ? ("max-width: " + maxWidth + ";") : ""}`
 ---
 
-<div class=`wrapper ${variant}` style={addStyles}>
+<div class={`wrapper ${variant}`}>
     <div class="circlesBar">
         <div class="circle green" />
         <div class="circle yellow" />
@@ -30,7 +30,7 @@ const addStyles = `${color ? ("color: " + color + ";") : ""}${fullWidth ? "width
 
 </div>
 
-<style>
+<style define:vars={{color, maxWidth}}>
     .wrapper{
         display: flex;
         flex-direction: column;
@@ -42,6 +42,9 @@ const addStyles = `${color ? ("color: " + color + ";") : ""}${fullWidth ? "width
         box-shadow: 0px 10px 5px rgba(0,0,0,0.1);
         width: 100%;
         height: auto;
+
+        color: var(--color);
+        max-width: var(--maxWidth);
     }
 
     .circlesBar{

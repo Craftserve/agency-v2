@@ -5,15 +5,21 @@ interface Props{
     variant: "primary" | "secondary" | "outlined";
 }
 
-const { id, variant, fontSize }: Props = Astro.props;
-const buttonClass = variant === 'primary' ? "dark" : variant === "secondary" ? "light" : "outlined"
+const { id, variant, fontSize = "1em" } = Astro.props as Props;
+
+const variantClassMap: Record<string, string> = {
+    primary: "dark",
+    secondary: "light",
+}
+
+const buttonClass = variantClassMap[variant] ?? "outlined";
 
 ---
-<button type="button" id={id} class=`button ${buttonClass}` style=`font-size: ${fontSize ? fontSize : "1em"}`>
+<button type="button" id={id} class={`button ${buttonClass}`}>
     <slot/>
 </button>
 
-<style>
+<style define:vars={{fontSize}}>
     .dark{
         color: white;
         background-color: var(--black);
@@ -37,5 +43,7 @@ const buttonClass = variant === 'primary' ? "dark" : variant === "secondary" ? "
         padding: 15px 30px;
         cursor: pointer;
         font-weight: 700;
+
+        font-size: var(--fontSize);
     }
 </style>
