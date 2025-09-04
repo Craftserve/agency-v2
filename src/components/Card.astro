@@ -7,13 +7,14 @@ interface Props {
     title?: string;
     color?: string;
     maxWidth?: string;
+    styles?: string;
 }
 
-const { variant, title = undefined, color = "white", maxWidth = "100%" } = Astro.props as Props;
+const { variant, title = undefined, styles = "" } = Astro.props as Props;
 
 ---
 
-<div class={`wrapper ${variant}`}>
+<div class={`wrapper ${variant}`} style={styles}>
     <div class="circlesBar">
         <div class="circle green" />
         <div class="circle yellow" />
@@ -30,7 +31,7 @@ const { variant, title = undefined, color = "white", maxWidth = "100%" } = Astro
 
 </div>
 
-<style define:vars={{color, maxWidth}}>
+<style>
     .wrapper{
         display: flex;
         flex-direction: column;
@@ -42,9 +43,6 @@ const { variant, title = undefined, color = "white", maxWidth = "100%" } = Astro
         box-shadow: 0px 10px 5px rgba(0,0,0,0.1);
         width: 100%;
         height: auto;
-
-        color: var(--color);
-        max-width: var(--maxWidth);
     }
 
     .circlesBar{
@@ -89,12 +87,12 @@ const { variant, title = undefined, color = "white", maxWidth = "100%" } = Astro
     }
 
     .light{
-        background-color: rgba(225,230,241,0.3);
-        color: white;
+        background-color: var(--lightDimmed);
+        color: var(--light);
     }
 
     .dark{
-        background-color: #0C0C0C2b;
-        color: white;
+        background-color: var(--darkDimmed);
+        color: var(--light);
     }
 </style>

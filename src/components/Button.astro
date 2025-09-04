@@ -21,20 +21,20 @@ const buttonClass = variantClassMap[variant] ?? "outlined";
 
 <style define:vars={{fontSize}}>
     .dark{
-        color: white;
-        background-color: #0C0C0C;
-        box-shadow: 0px 5px 5px rgba(12, 12, 12, 1);
+        color: var(--light);
+        background-color: var(--dark);
+        box-shadow: 0px 5px 5px var(--dark);
     }
 
     .light{
-        color: rgba(12, 12, 12, 1);
+        color: var(--dark);
         background-color: var(--secondary);
     }
 
     .outlined{
         color: var(--primary);
         background-color: transparent;
-        border: 2px solid var(--primary) !important;
+        border: 2px solid var(--primary);
     }
 
     .button{
