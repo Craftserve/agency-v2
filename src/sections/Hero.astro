@@ -10,15 +10,12 @@ const t = useTranslations(lang);
 
 const routes = getRoutes(Astro.url);
 
-const headerContent = t("header").split("|");
 ---
 
 <div class="wrapper">
     <div class="infoContainer">
         <span class="title">
-            {headerContent.map((chunk) => {
-                return <>{chunk} <br /></>
-            })}
+            
         </span>
         <div class="buttonsContainer">
             <Link variant="primary" href={routes[0].url}>
@@ -36,6 +33,52 @@ const headerContent = t("header").split("|");
     </div>
     <Image class="imageContainer" src={starsIconGroup} alt="stars"/>
 </div>
+
+<script>
+    import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+    const lang = getLangFromUrl(new URL(window.location.href));
+    const t = useTranslations(lang);
+
+    const headerText = t("header").split("");
+    const headerComponent = document.getElementsByClassName("title")[0];
+    let textComponent = headerComponent;
+
+    let time = 0;
+    let multi = 0;
+
+    if(headerComponent){
+        headerText.forEach((letter, index) => {
+            setTimeout(() => {
+                if(letter === "|"){
+                    textComponent.innerHTML += "<br />";
+                    console.log(textComponent);
+                    return;
+                }
+
+                if(letter === "i" && headerText[index-1] === " "){
+                    const newSpan = document.createElement("span");
+                    newSpan.style.color = "#6809EE";
+
+
+                    headerComponent.appendChild(newSpan);
+                    textComponent = newSpan;
+                }
+
+                textComponent.innerHTML += letter;
+            }, time)
+
+            if(letter === ","){
+                time += 1000;
+                multi = 150;
+                return;
+            }
+
+            time += multi;
+        })
+    }
+    
+</script>
 
 <style>
     .wrapper{
@@ -67,6 +110,7 @@ const headerContent = t("header").split("|");
         font-size: 50pt;
         font-weight: 700;
         letter-spacing: -2px;
+        min-height: 230px;
     }
 
     .imageContainer{
@@ -105,6 +149,7 @@ const headerContent = t("header").split("|");
     @media only screen and (max-width: 1000px){
         .imageContainer{
             opacity: 0.5;
+            animation: fadeFromRightMobile ease-out 1s;
         }
 
         .title{
@@ -116,5 +161,15 @@ const headerContent = t("header").split("|");
         }
     }
 
+    @keyframes fadeFromRightMobile{
+        from{
+            transform: translateX(300px) translateY(-50%);
+            opacity: 0;
+        }
+        to{
+            transform: translateX(0px) translateY(-50%);
+            opacity: 0.5;
+        }
+    }
 
 </style>
