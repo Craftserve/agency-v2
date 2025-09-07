@@ -1,9 +1,12 @@
 :root {
-    --black: #0C0C0C;
-    --black80: #0C0C0C2b;
+    --dark: #0c0c0cff;
+    --darkDimmed: #0c0c0c2b;
     --primary: #6809EE;
-    --border: #e5e5e533;
-    --gray: #E1E6F1;
+    --secondary: #e5e5e533;
+    --secondaryDimmed: #d9d9d90a;
+    --secondaryLight: #E1E6F1;
+    --light: #ffffffff;
+    --lightDimmed: #e1e6f14d;
     --success: #73FF8D;
     --warning: #F9FF3C;
     --danger: #FF264A;
@@ -15,4 +18,5 @@ body {
     margin: 0;
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
 }

@@ -1,19 +1,20 @@
 ---
+import { undefined } from 'astro:schema';
+
 
 interface Props {
     variant: "light" | "dark";
     title?: string;
     color?: string;
-    fullWidth?: boolean;
     maxWidth?: string;
+    styles?: string;
 }
 
-const { variant, title, color, fullWidth, maxWidth }: Props = Astro.props;
+const { variant, title = undefined, styles = "" } = Astro.props as Props;
 
-const addStyles = `${color ? ("color: " + color + ";") : ""}${fullWidth ? "width: 100%;" : ""}${maxWidth ? ("max-width: " + maxWidth + ";") : ""}`
 ---
 
-<div class=`wrapper ${variant}` style={addStyles}>
+<div class={`wrapper ${variant}`} style={styles}>
     <div class="circlesBar">
         <div class="circle green" />
         <div class="circle yellow" />
@@ -36,7 +37,7 @@ const addStyles = `${color ? ("color: " + color + ";") : ""}${fullWidth ? "width
         flex-direction: column;
         border-radius: 12px;
         padding: 0px 20px 30px 20px;
-        border: 2px solid var(--border);
+        border: 2px solid var(--secondary);
         overflow-y: hidden;
         backdrop-filter: blur(32px);
         box-shadow: 0px 10px 5px rgba(0,0,0,0.1);
@@ -86,12 +87,12 @@ const addStyles = `${color ? ("color: " + color + ";") : ""}${fullWidth ? "width
     }
 
     .light{
-        background-color: rgba(225,230,241,0.3);
-        color: white;
+        background-color: var(--lightDimmed);
+        color: var(--light);
     }
 
     .dark{
-        background-color: var(--black80);
-        color: white;
+        background-color: var(--darkDimmed);
+        color: var(--light);
     }
 </style>

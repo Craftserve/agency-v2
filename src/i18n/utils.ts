@@ -24,11 +24,11 @@ export function getRoutes(url: URL){
   return [
     {
         name: t("contact"),
-        url: `/${lang != defaultLang && lang+"/"}contact`
+        url: `/${lang != defaultLang ? lang+"/" : ""}${t("contactUrl")}`
     },
     {
         name: t("about"),
-        url: `/${lang != defaultLang && lang+"/"}about`
+        url: `/${lang != defaultLang ? lang+"/" : ""}${t("aboutUrl")}`
     }
   ]
 }
