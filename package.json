@@ -9,7 +9,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.13.2"
+    "@iconify-json/tabler": "^1.2.22",
+    "@iconify-json/uil": "^1.2.3",
+    "astro": "^5.13.2",
+    "astro-icon": "^1.1.5",
+    "embla-carousel": "^8.6.0",
+    "embla-carousel-auto-scroll": "^8.6.0"
   },
   "devDependencies": {
     "prettier": "^3.6.2"

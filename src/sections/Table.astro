@@ -1,0 +1,171 @@
+---
+---
+
+<div class="tableLayout">
+    <div class="vertical">
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+        <div class="line line3"></div>
+        <div class="line line4"></div>
+    </div>
+    <div class="horizontal">
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+    </div>
+    <div class="layer">
+        <div class="card">
+            <span style="font-weight: 400; width: 100%;">Lorem ipsum</span>
+            <span style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </span>
+        </div>
+        <div class="card">
+            <span style="font-weight: 400; width: 100%;">Lorem ipsum</span>
+            <span style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </span>
+        </div>
+        <div class="card">
+            <span style="font-weight: 400; width: 100%;">Lorem ipsum</span>
+            <span style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </span>
+        </div>
+    </div>
+    <div class="layer">
+        <div class="card">
+            <span style="font-weight: 400; width: 100%;">Lorem ipsum</span>
+            <span style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </span>
+        </div>
+        <div class="card">
+            <span style="font-weight: 400; width: 100%;">Lorem ipsum</span>
+            <span style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </span>
+        </div>
+        <div class="card">
+            <span style="font-weight: 400; width: 100%;">Lorem ipsum</span>
+            <span style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </span>
+        </div>
+    </div>
+    <div class="layer">
+        <div class="card">
+            <span style="font-weight: 400; width: 100%;">Lorem ipsum</span>
+            <span style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </span>
+        </div>
+        <div class="card">
+            <span style="font-weight: 400; width: 100%;">Lorem ipsum</span>
+            <span style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </span>
+        </div>
+        <div class="card">
+            <span style="font-weight: 400; width: 100%;">Lorem ipsum</span>
+            <span style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </span>
+        </div>
+    </div>
+
+</div>
+
+<style>
+    .tableLayout{
+        width: 60%;
+        position: relative;
+        margin: 50px 0px;
+    }
+
+    .layer{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        min-height: 200px;
+    }
+
+    .card{
+        min-width: 200px;
+        max-width: 30%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .line{
+        position: absolute;
+    }
+
+    .vertical > .line{
+        height: 100%;
+        width: 1px;
+        background: linear-gradient(transparent 0, rgba(131, 131, 131, 1));
+    }
+
+    .vertical > .line{
+        top: 0;
+    }
+
+    .vertical > .line1{
+        left: 0;
+    }
+
+    .vertical > .line2{
+        left: 33%;
+    }
+
+    .vertical > .line3{
+        left: 66%;
+    }
+
+    .vertical > .line4{
+        left: 100%;
+    }
+
+    .horizontal > .line{
+        width: 100vw;
+        height: 1px;
+        transform: translateX(-20%);
+        background: linear-gradient(to right, rgba(131, 131, 131, 1) 0, transparent 60%, rgba(131, 131, 131, 1) 100%);
+    }
+
+    .horizontal > .line{
+        left: 0;
+    }
+
+    .horizontal > .line1{
+        top: 33%;
+    }
+
+    .horizontal > .line2{
+        top: 66%;
+    }
+
+    @media only screen and (max-width: 1100px){
+        .layer{
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .vertical{
+            display: none;
+        }
+
+        .horizontal{
+            display: none;
+        }
+        
+        .tableLayout{
+            width: 100%;
+        }
+
+        .card{
+            padding: 20px;
+            width: calc(100% - 20px);
+            border-width: 0px;
+            border-bottom-width: 1px;
+            border-style: solid;
+            border-image: linear-gradient(to right, transparent 20%, rgba(131, 131, 131, 1), transparent 80%) 1;
+            max-width: unset;
+        }
+
+        .layer:last-child > .card:last-child{
+            border: unset;
+        }
+
+        .card > span{
+            max-width: 60%;
+            text-align: center;
+        }
+    }
+</style>

@@ -16,3 +16,20 @@ export function useTranslations(lang: keyof typeof ui) {
     return ui[lang][key] || ui[defaultLang][key];
   }
 }
+
+export function getRoutes(url: URL){
+  const lang = getLangFromUrl(url);
+  const t = useTranslations(lang);
+
+  return [
+    {
+        name: t("contact"),
+        url: `/${lang != defaultLang ? lang+"/" : ""}${t("contactUrl")}`
+    },
+    {
+        name: t("about"),
+        url: `/${lang != defaultLang ? lang+"/" : ""}${t("aboutUrl")}`
+    }
+  ]
+}
+

@@ -1,0 +1,99 @@
+---
+import { Image } from "astro:assets";
+import starsIconGroup from "../../public/assets/starsIconGroup.svg";
+import Link from "../components/Link.astro";
+import { getLangFromUrl, getRoutes, useTranslations } from "../i18n/utils";
+import { Icon } from 'astro-icon/components';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const routes = getRoutes(Astro.url);
+
+const headerContent = t("header").split("|");
+---
+
+<div class="wrapper">
+    <div class="infoContainer">
+        <span class="title">
+            {headerContent.map((chunk) => {
+                return <>{chunk} <br /></>
+            })}
+        </span>
+        <div class="buttonsContainer">
+            <Link variant="primary" href={routes[0].url}>
+                <Icon name="uil:phone" width={30} height={30} />
+                {t("joinus")}
+            </Link>
+            <Link variant="outlined" href={routes[1].url} >
+                <Icon name="uil:info-circle" width={30} height={30} />
+                <div style="display: flex; flex-direction: column;">
+                    <span style="font-weight: 400; font-size: 10pt;">{t("learnmore")}</span>
+                    <span style="font-weight: 700">{t("aboutus")}</span>
+                </div>
+            </Link>
+        </div>
+    </div>
+    <Image class="imageContainer" src={starsIconGroup} alt="stars"/>
+</div>
+
+
+
+<style>
+    .wrapper{
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+        position: relative;
+        padding: 20px;
+        z-index: 1;
+        width: 90%;
+        margin-bottom: 30px;
+    }
+
+    .infoContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 30px;
+        /* z-index: -1; */
+    }
+
+    .buttonsContainer{
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    .title{
+        font-size: 50pt;
+        font-weight: 700;
+        letter-spacing: -2px;
+    }
+
+    .imageContainer{
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 400px;
+        height: 300px;
+        z-index: -1;
+    }
+
+    @media only screen and (max-width: 1000px){
+        .imageContainer{
+            opacity: 0.5;
+        }
+
+        .title{
+            font-size: 35pt;
+        }
+
+        .buttonsContainer{
+            flex-direction: column;
+        }
+    }
+
+
+</style>

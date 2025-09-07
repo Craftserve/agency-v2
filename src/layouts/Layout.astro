@@ -1,5 +1,7 @@
 ---
 import '../../src/global.css'
+import Footer from '../sections/Footer.astro'
+import Navbar from '../sections/Navbar.astro'
 ---
 
 <!doctype html>
@@ -19,7 +21,9 @@ import '../../src/global.css'
 	</head>
 	<body>
 		<div class="container">
+			<Navbar />
 			<slot />
+			<Footer />
 		</div>
 		<script>
 			import { getLangForRedirect } from "../i18n/utils";
@@ -39,7 +43,6 @@ import '../../src/global.css'
 
 <style>
 	.container {
-		height: 100%;
 		width: 100%;
 		display: flex;
 		flex-direction: column;
