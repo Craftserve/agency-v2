@@ -26,6 +26,9 @@ import LogoDark from "../../public/assets/LogoDark.svg";
             <div class="embla__slide">
                 <Image src={LogoDark} alt="logo" width={100} height={100} />
             </div>
+            <div class="embla__slide">
+                <Image src={LogoDark} alt="logo" width={100} height={100} />
+            </div>
         </div>
     </div>
 </div>
@@ -36,7 +39,7 @@ import LogoDark from "../../public/assets/LogoDark.svg";
     import Autoscroll from "embla-carousel-auto-scroll";
 
     const emblaNode = document.getElementById('embla');
-    const options = { loop: true, speed: 5, startDelay: 0, stopOnInteraction: false, stopOnFocusIn: false };
+    const options = { loop: true, speed: 5, startDelay: 0, stopOnInteraction: false};
     const plugins = [Autoscroll()];
 
     if(emblaNode){
@@ -46,6 +49,7 @@ import LogoDark from "../../public/assets/LogoDark.svg";
 
 <style>
     .wrapper{
+        margin-top: 30px;
         width: 100%;
     }
 

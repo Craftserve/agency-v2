@@ -1,7 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
 import Image from "astro/components/Image.astro";
-import star from "../assets/star.svg";
+import star from "../../public/assets/star.svg";
+import Link from "../components/Link.astro";
+import { getLangFromUrl, getRoutes, useTranslations } from "../i18n/utils";
 
 type IconItem = {
   type: "icon";
@@ -58,11 +60,16 @@ const contentData: (IconItem | ImageItem)[] = [
   },
 ];
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const routes = getRoutes(Astro.url);
+
 ---
 
 <div class="container">
     <div class="item-wrapper">
-          {contentData.map((item, index) =>
+        {contentData.map((item, index) =>
             index < 4 ? (
                 <div class="item">
                     <Icon name={item.iconName} class="icon"/>        
@@ -86,20 +93,32 @@ const contentData: (IconItem | ImageItem)[] = [
                 </div>
             ) : ""
         )}
-</div>
+    </div>
+    <div class="linkContainer">
+        <Link variant="primary" href={routes[0].url}>
+            <Icon name="uil:phone" width={30} height={30} />
+            {t("joinus")}
+        </Link>
+    </div>
+    
 </div>
 
 <style>
 .container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
-    margin: 20px 0px;
+    margin: 70px 0px 0px;
     max-width: 1000px;
     height: 100%;
     gap: 30px;
     padding: 20px;
     z-index: 1;
+}
+
+.linkContainer{
+    padding: 70px 0px 0px;
 }
 
 .item-wrapper {
