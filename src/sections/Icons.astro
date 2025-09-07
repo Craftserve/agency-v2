@@ -2,8 +2,6 @@
 import { Icon } from "astro-icon/components";
 import Image from "astro/components/Image.astro";
 import star from "../../public/assets/star.svg";
-import Link from "../components/Link.astro";
-import { getLangFromUrl, getRoutes, useTranslations } from "../i18n/utils";
 
 type IconItem = {
   type: "icon";
@@ -60,11 +58,6 @@ const contentData: (IconItem | ImageItem)[] = [
   },
 ];
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-
-const routes = getRoutes(Astro.url);
-
 ---
 
 <div class="container">
@@ -94,13 +87,6 @@ const routes = getRoutes(Astro.url);
             ) : ""
         )}
     </div>
-    <div class="linkContainer">
-        <Link variant="primary" href={routes[0].url}>
-            <Icon name="uil:phone" width={30} height={30} />
-            {t("joinus")}
-        </Link>
-    </div>
-    
 </div>
 
 <style>
@@ -115,10 +101,7 @@ const routes = getRoutes(Astro.url);
     gap: 30px;
     padding: 20px;
     z-index: 1;
-}
-
-.linkContainer{
-    padding: 70px 0px 0px;
+    animation: fadeIn ease-out 1s;
 }
 
 .item-wrapper {
@@ -166,6 +149,17 @@ const routes = getRoutes(Astro.url);
     width: 155px;
     background-color: #6809EE1A;
     transform: rotate(-7deg);
+}
+
+@keyframes fadeIn{
+    from{
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0px);
+        opacity: 1;
+    }
 }
 
 @media only screen and (max-width: 768px){

@@ -1,7 +1,4 @@
 ---
-import { undefined } from 'astro:schema';
-
-
 interface Props{
     href: string | URL;
     variant: "blank" | "primary" | "outlined";
@@ -31,6 +28,7 @@ const isFullWidth = fullWidth ? "100%" : "fit-content";
         justify-content: center;
         gap: 5px;
         min-width: 80px;
+        transition: all 0.1s linear;
         
         width: var(--isFullWidth);
     }
@@ -44,10 +42,53 @@ const isFullWidth = fullWidth ? "100%" : "fit-content";
     .outlined{
         color: var(--primary);
         background-color: transparent;
-        border: 2px solid var(--primary);
+        outline: 2px solid var(--primary);
     }
  
     .blank{
+        border: 2px solid transparent;
         color: var(--dark);
+    }
+
+    .primary:hover{
+        animation: primaryAnim linear 0.1s;
+        box-shadow: -5px 10px 0px rgba(12, 12, 12, 0.2);
+    }
+
+    .outlined:hover{
+        animation: outlinedAnim linear 0.1s;
+        box-shadow: 5px 10px 0px #6809EE5b;
+    }
+
+    .blank:hover{
+        box-shadow: 5px 5px 0px rgba(12, 12, 12, 0.2);
+        animation: blankAnim linear 0.1s;
+    }
+
+    @keyframes blankAnim{
+        from{
+            box-shadow: none;
+        }
+        to{
+            box-shadow: 5px 5px 0px rgba(12, 12, 12, 0.2);
+        }
+    }
+
+    @keyframes primaryAnim{
+        from{
+            box-shadow: 0px 5px 5px rgba(12, 12, 12, 0.33);
+        }
+        to{
+            box-shadow: -5px 10px 0px rgba(12, 12, 12, 0.2);
+        }
+    }
+
+    @keyframes outlinedAnim{
+        from{
+            box-shadow: none;
+        }
+        to{
+            box-shadow: 5px 10px 0px #6809EE5b;
+        }
     }
 </style>

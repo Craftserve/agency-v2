@@ -37,8 +37,6 @@ const headerContent = t("header").split("|");
     <Image class="imageContainer" src={starsIconGroup} alt="stars"/>
 </div>
 
-
-
 <style>
     .wrapper{
         display: flex;
@@ -56,7 +54,7 @@ const headerContent = t("header").split("|");
         flex-direction: column;
         justify-content: space-between;
         gap: 30px;
-        /* z-index: -1; */
+        animation: fadeFromLeft ease-out 1s;
     }
 
     .buttonsContainer{
@@ -79,6 +77,29 @@ const headerContent = t("header").split("|");
         width: 400px;
         height: 300px;
         z-index: -1;
+        animation: fadeFromRight ease-out 1s;
+    }
+
+    @keyframes fadeFromLeft{
+        from{
+            transform: translateX(-200px);
+            opacity: 0;
+        }
+        to{
+            transform: translateX(0px);
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeFromRight{
+        from{
+            transform: translateX(300px) translateY(-50%);
+            opacity: 0;
+        }
+        to{
+            transform: translateX(0px) translateY(-50%);
+            opacity: 1;
+        }
     }
 
     @media only screen and (max-width: 1000px){

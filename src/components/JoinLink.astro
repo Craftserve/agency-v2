@@ -1,0 +1,28 @@
+---
+import { Icon } from "astro-icon/components";
+import { getLangFromUrl, getRoutes, useTranslations } from "../i18n/utils";
+import Link from "./Link.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const routes = getRoutes(Astro.url);
+
+---
+
+<div class="linkContainer">
+    <Link variant="primary" href={routes[0].url}>
+        <Icon name="uil:phone" width={30} height={30} />
+        {t("joinus")}
+    </Link>
+</div>
+
+<style>
+    .linkContainer{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 0px 0px;
+    }
+</style>
