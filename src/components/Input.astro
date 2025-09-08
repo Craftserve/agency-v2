@@ -9,7 +9,7 @@ const props = Astro.props as InputProps;
 ---
 <div class="input-container">
     <input {...props}>
-    <div class="icon-container">
+    <div class="icon-container" aria-hidden="true">
         <Icon name="tabler:alert-circle" class="icon-error"/>
     </div>
 </div>
@@ -27,11 +27,11 @@ const props = Astro.props as InputProps;
         display: flex;
         justify-content: center;
         align-items: center;
-        outline: #AEB4C2;
-        color: #AEB4C2;
+        outline: var(--placeholder);
+        color: var(--placeholder);
         border: none;
-        border-bottom: 3px #AEB4C2 solid;
-        caret-color: #AEB4C2;
+        border-bottom: 2px var(--placeholder) solid;
+        caret-color: var(--placeholder);
         transition: all 0.3s ease-in-out;
     }
 
@@ -39,7 +39,7 @@ const props = Astro.props as InputProps;
         outline: var(--primary);
         color: black;
         border: none;
-        border-bottom: 3px var(--primary) solid;
+        border-bottom: 2px var(--primary) solid;
         caret-color: var(--primary);
     }
 
@@ -57,7 +57,7 @@ const props = Astro.props as InputProps;
         color: var(--danger) ;
         caret-color: var(--danger) ;
         border: none;
-        border-bottom: 3px var(--danger) solid;
+        border-bottom: 2px var(--danger) solid;
         
         input {
             color: var(--danger);
