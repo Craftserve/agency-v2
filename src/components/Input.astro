@@ -1,0 +1,71 @@
+---
+import type { JSX } from 'astro/jsx-runtime';
+import { Icon } from "astro-icon/components";
+
+
+type InputProps = JSX.IntrinsicElements['input'];
+
+const props = Astro.props as InputProps;
+---
+<div class="input-container">
+    <input {...props}>
+    <div class="icon-container" aria-hidden="true">
+        <Icon name="tabler:alert-circle" class="icon-error"/>
+    </div>
+</div>
+<style>
+
+    input {
+        outline: 0;
+        border: 0;
+        font-size: 16px;
+        padding: 8px;
+        font-family: var(--ubuntu);
+    }
+
+    .input-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        outline: var(--placeholder);
+        color: var(--placeholder);
+        border: none;
+        border-bottom: 2px var(--placeholder) solid;
+        caret-color: var(--placeholder);
+        transition: all 0.3s ease-in-out;
+    }
+
+     .input-container:focus-within {
+        outline: var(--primary);
+        color: black;
+        border: none;
+        border-bottom: 2px var(--primary) solid;
+        caret-color: var(--primary);
+    }
+
+    .icon-container {
+        visibility: hidden;
+    }
+
+    .icon {
+        height: 13px;
+        width: 13px;
+    }
+
+    .input-container:has(input:invalid){
+        outline: var(--danger) ;
+        color: var(--danger) ;
+        caret-color: var(--danger) ;
+        border: none;
+        border-bottom: 2px var(--danger) solid;
+        
+        input {
+            color: var(--danger);
+        }
+
+        .icon-container {
+            visibility: visible;
+        }
+    }
+
+</style>
