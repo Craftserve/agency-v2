@@ -4,13 +4,17 @@ import { Image } from "astro:assets"
 import LogoDark from "../../src/assets/LogoDark.svg";
 import Input from "../components/Input.astro";
 import Button from "../components/Button.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 ---
 
 <div class="wrapper" id="formSection">
     <div class="infoWrapper">
-        <span class="infoTitle">Ukończ cele swojej firmy z Vitresoft</span>
-        <span class="infoDesc">Otrzymasz odpowiedź na podany adres email w przeciągu 24 godzin. Odpowiemy na wszystkie nurtujące pytania i zaproponujemy rozwiązania do przedstawionego budżetu</span>
+        <span class="infoTitle">{t("formTitle")}</span>
+        <span class="infoDesc">{t("formDesc")}</span>
     </div>
     <div class="formWrapper">
         <div class="formTopBar">
@@ -20,26 +24,26 @@ import Button from "../components/Button.astro";
             <div class="formSections">
                 <div class="formTopSection">
                     <div class="formTopSectionInput">
-                        <Input type="text" placeholder="Name" name="name" />
+                        <Input type="text" placeholder={t("name")} name="name" />
                     </div>
                     <div class="formTopSectionInput">
-                        <Input type="text" placeholder="Surname" name="surname" />
+                        <Input type="text" placeholder={t("surname")} name="surname" />
                     </div>
                     <div class="formTopSectionInput">
-                        <Input type="tel" placeholder="+48 123 456 789" name="tel" />
+                        <Input type="tel" placeholder={t("phone")} name="tel" />
                     </div>
                     <div class="formTopSectionInput">
-                        <Input type="text" placeholder="Subject" name="subject" />
+                        <Input type="text" placeholder={t("subject")} name="subject" />
                     </div>
                 </div>
                 <div class="formBottomSection">
-                    <Input type="email" placeholder="E-mail" name="email" />
-                    <Input type="text" placeholder="Company" name="company" />
-                    <Input type="text" placeholder="Content" name="content" />
+                    <Input type="email" placeholder={t("email")} name="email" />
+                    <Input type="text" placeholder={t("company")} name="company" />
+                    <Input type="text" placeholder={t("content")} name="content" />
                 </div>
             </div>
             <div class="formButtonContainer">
-                <Button variant="primary" id="formSubmitButton">Send</Button>
+                <Button variant="primary" id="formSubmitButton">{t("send")}</Button>
             </div>
         </form>
     </div>
@@ -62,7 +66,7 @@ import Button from "../components/Button.astro";
 <style>
     .wrapper{
         width: 900px;
-        height: 400px;
+        height: 470px;
 
         display: flex;
         flex-direction: column;
@@ -82,7 +86,7 @@ import Button from "../components/Button.astro";
     .infoWrapper{
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 20px;
 
         width: 50%;
         height: 50%;
@@ -142,17 +146,20 @@ import Button from "../components/Button.astro";
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
+        gap: 15px;
     }
 
     .formTopSectionInput{
-        width: 48%;
+        width: 47%;
     }
 
     .formBottomSection{
+        margin-top: 15px;
         padding: 0px 20px 20px;
 
         display: flex;
         flex-direction: column;
+        gap: 15px;
     }
 
     .formButtonContainer{

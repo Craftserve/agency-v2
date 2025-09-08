@@ -16,7 +16,7 @@ const headerContent = t("header").split("|");
 <div class="wrapper">
     <div class="infoContainer">
         <span class="title">
-            {headerContent.map((chunk) => {
+            {headerContent.map((chunk: string) => {
                 return <>{chunk} <br /></>
             })}
         </span>
