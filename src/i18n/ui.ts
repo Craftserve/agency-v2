@@ -11,7 +11,7 @@ export const ui = {
         "header": "Today is your| day to grow| in ideas.",
 
         "aboutUrl": "about",
-        "contactUrl": "contact",
+        "contactUrl": "#formSection",
     },
     "pl-PL": {
         "example": "test po polsku",
@@ -23,6 +23,6 @@ export const ui = {
         "header": "Dziś jest Twój| dzień, aby urosnąć| w ideach.",
 
         "aboutUrl": "o-nas",
-        "contactUrl": "kontakt",
+        "contactUrl": "#formSection",
     }
 } as const;
