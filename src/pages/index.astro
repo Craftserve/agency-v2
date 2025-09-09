@@ -7,7 +7,8 @@ import Offers from '../sections/Offers.astro';
 import Icons from '../sections/Icons.astro';
 import Carousel from '../sections/Carousel.astro';
 import Table from '../sections/Table.astro';
-
+import Textarea from '../components/Textarea.astro';
+import Input from '../components/Input.astro';
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
@@ -20,7 +21,8 @@ import Table from '../sections/Table.astro';
 	<Icons />
 	<Table />
 	<Carousel />
-	
+	<Textarea rows="1" cols="30"/> <!-- Trzeba ustawić rows i cols ręcznie  -->
+	<Input />
 </Layout>
 
 <style>
