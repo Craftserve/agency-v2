@@ -1,5 +1,10 @@
 export const defaultLang = "pl-PL";
 
+export const langs = [
+    "en",
+    "pl-PL",
+]
+
 export const ui = {
     "en": {
         "example": "test",
@@ -12,6 +17,8 @@ export const ui = {
 
         "aboutUrl": "about",
         "contactUrl": "contact",
+
+        "language": "EN",
     },
     "pl-PL": {
         "example": "test po polsku",
@@ -24,5 +31,7 @@ export const ui = {
 
         "aboutUrl": "o-nas",
         "contactUrl": "kontakt",
+
+        "language": "PL",
     }
 } as const;
