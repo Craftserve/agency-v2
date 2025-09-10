@@ -2,6 +2,7 @@
 import { Icon } from "astro-icon/components"
 import { Image } from "astro:assets"
 import LogoDark from "../../src/assets/LogoDark.svg";
+import starsIconGroupWhite from "../../src/assets/starsIconGroupWhite.svg";
 import Input from "../components/Input.astro";
 import Button from "../components/Button.astro";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
@@ -15,6 +16,7 @@ const t = useTranslations(lang);
     <div class="infoWrapper">
         <span class="infoTitle">{t("formTitle")}</span>
         <span class="infoDesc">{t("formDesc")}</span>
+        <Image class="infoImage" src={starsIconGroupWhite} alt="stars" width={500} />
     </div>
     <div class="formWrapper">
         <div class="formTopBar">
@@ -90,6 +92,7 @@ const t = useTranslations(lang);
 
         width: 50%;
         height: 50%;
+        position: relative;
     }
 
     .infoTitle{
@@ -99,8 +102,17 @@ const t = useTranslations(lang);
 
     .infoDesc{
         font-weight: 300;
-        font-size: 18px;
+        font-size: 20px;
         color: rgba(255,255,255,0.7);
+        width: 50%;
+    }
+
+    .infoImage{
+        position: absolute;
+        right: -2%;
+        top: 20%;
+        opacity: 0.25;
+        filter: blur(2px);
     }
 
     .formWrapper{
@@ -177,7 +189,7 @@ const t = useTranslations(lang);
         display: flex;
         flex-direction: column;
         gap: 5px;
-        justify-content: center;
+        justify-content: end;
     }
 
     .contactRow{
