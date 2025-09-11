@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import LogoDark from "../assets/LogoDark.svg"
+import LogoDark from "../assets/LogoDark.svg";
 import { getLangFromUrl, getRoutes, useTranslations } from "../i18n/utils";
 import Link from "../components/Link.astro";
 import { Icon } from "astro-icon/components";
@@ -11,14 +11,20 @@ const routes = getRoutes(Astro.url);
 <nav class="nav">
     <div class="wrapper">
         <button class="logoContainer">
-            <Image src={LogoDark} alt="Logo" width={40} height={40}/>
+            <Image src={LogoDark} alt="Logo" width={40} height={40} />
             <span style="font-weight: 700;">Vitresoft</span>
         </button>
 
         <div class="hamburger-menu">
-            {routes.map((route) => {
-                return <Link variant="blank" href={route.url}>{route.name}</Link>
-            })}
+            {
+                routes.map((route) => {
+                    return (
+                        <Link variant="blank" href={route.url}>
+                            {route.name}
+                        </Link>
+                    );
+                })
+            }
         </div>
         <button type="button" class="hamburger-button">
             <Icon class="hamburger-icon" name="tabler:menu-2" />
@@ -28,14 +34,14 @@ const routes = getRoutes(Astro.url);
 
 <script src="../scripts/NavbarScripts.js"></script>
 <style>
-    .nav{
+    .nav {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    .wrapper{
+    .wrapper {
         width: 100%;
         height: 100%;
         padding: 15px 10px 5px;
@@ -44,7 +50,7 @@ const routes = getRoutes(Astro.url);
         justify-content: space-between;
     }
 
-     .logoContainer{
+    .logoContainer {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -54,15 +60,14 @@ const routes = getRoutes(Astro.url);
         cursor: pointer;
         font-family: var(--font-ubuntu);
     }
-  
 
-    .hamburger-menu{
+    .hamburger-menu {
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 20px;
     }
-    
+
     .hamburger-icon {
         font-size: 30px;
     }
@@ -73,20 +78,20 @@ const routes = getRoutes(Astro.url);
         border: 0;
         border-radius: 10px;
         background-color: transparent;
-        transition: ease-in-out .8s;
+        transition: ease-in-out 0.8s;
     }
 
     .hamburger-button:hover {
         background-color: var(--secondaryLight);
-        transition: backgroundColor ease .7s;
+        transition: backgroundColor ease 0.7s;
     }
 
-    @media only screen and (max-width: 768px){
+    @media only screen and (max-width: 768px) {
         .hamburger-button {
             display: block;
         }
 
-        .hamburger-menu{
+        .hamburger-menu {
             background-color: var(--secondaryLight);
             width: 100%;
             position: fixed;
@@ -95,7 +100,7 @@ const routes = getRoutes(Astro.url);
             origin: top;
             overflow: hidden;
             max-height: 0px;
-            transition: .6s;
+            transition: 0.6s;
             flex-direction: column;
             gap: 5px;
             z-index: 500;

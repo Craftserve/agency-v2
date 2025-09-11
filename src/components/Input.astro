@@ -1,20 +1,19 @@
 ---
-import type { JSX } from 'astro/jsx-runtime';
+import type { JSX } from "astro/jsx-runtime";
 import { Icon } from "astro-icon/components";
 
-
-type InputProps = JSX.IntrinsicElements['input'];
+type InputProps = JSX.IntrinsicElements["input"];
 
 const props = Astro.props as InputProps;
 ---
+
 <div class="input-container">
-    <input {...props}>
+    <input {...props} />
     <div class="icon-container" aria-hidden="true">
-        <Icon name="tabler:alert-circle" class="icon-error"/>
+        <Icon name="tabler:alert-circle" class="icon-error" />
     </div>
 </div>
 <style>
-
     input {
         outline: 0;
         border: 0;
@@ -35,7 +34,7 @@ const props = Astro.props as InputProps;
         transition: all 0.3s ease-in-out;
     }
 
-     .input-container:focus-within {
+    .input-container:focus-within {
         outline: var(--primary);
         color: black;
         border: none;
@@ -52,13 +51,13 @@ const props = Astro.props as InputProps;
         width: 13px;
     }
 
-    .input-container:has(input:invalid){
-        outline: var(--danger) ;
-        color: var(--danger) ;
-        caret-color: var(--danger) ;
+    .input-container:has(input:invalid) {
+        outline: var(--danger);
+        color: var(--danger);
+        caret-color: var(--danger);
         border: none;
         border-bottom: 2px var(--danger) solid;
-        
+
         input {
             color: var(--danger);
         }
@@ -67,5 +66,4 @@ const props = Astro.props as InputProps;
             visibility: visible;
         }
     }
-
 </style>
