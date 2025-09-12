@@ -8,7 +8,7 @@
         "preview": "astro preview",
         "astro": "astro",
         "i18n": "npm-run-all --parallel i18n:*",
-        "i18n:craftserve": "i18next './src/**/*.{ts,tsx}' -c ./i18next-parser.config.js"
+        "i18n:craftserve": "i18next --config ./i18next-parser.config.js"
     },
     "dependencies": {
         "@iconify-json/tabler": "^1.2.22",

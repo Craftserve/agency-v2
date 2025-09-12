@@ -1,6 +1,20 @@
 {
-    "about": "__NOT_TRANSLATED__",
-    "aboutUrl": "__NOT_TRANSLATED__",
-    "contact": "__NOT_TRANSLATED__",
-    "contactUrl": "__NOT_TRANSLATED__"
+    "hero": {
+        "header": "Dziś jest Twój| dzień, aby urosnąć| w ideach."
+    },
+    "iconsSection": {
+        "perfect": "Idealne dla freelancerów",
+        "time": "Szybki czas realizacji usług"
+    },
+    "links": {
+        "about": "Dlaczego my",
+        "aboutus": "Więcej o nas",
+        "contact": "Kontakt",
+        "joinus": "Dołącz do nas",
+        "learnmore": "dowiedz się"
+    },
+    "urls": {
+        "about": "o-nas",
+        "contact": "kontakt"
+    }
 }
