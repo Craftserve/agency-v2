@@ -14,8 +14,8 @@ const t = useTranslations(lang);
 
 <div class="wrapper" id="formSection">
     <div class="infoWrapper">
-        <span class="infoTitle">{t("formTitle")}</span>
-        <span class="infoDesc">{t("formDesc")}</span>
+        <h2 class="infoTitle">{t("formTitle")}</h2>
+        <p class="infoDesc">{t("formDesc")}</p>
         <Image class="infoImage" src={starsIconGroupWhite} alt="stars" width={500} />
     </div>
     <div class="formWrapper">
@@ -49,20 +49,20 @@ const t = useTranslations(lang);
             </div>
         </form>
     </div>
-    <div class="contactWrapper">
-        <span class="contactRow">
+    <ul class="contactWrapper">
+        <li class="contactRow">
             <Icon name="uil:phone" />
             +123 456 789
-        </span>
-        <span class="contactRow borderRow">
+        </li>
+        <li class="contactRow borderRow">
             <Icon name="uil:envelope-alt" />
             biuro@vitresoft.com
-        </span>
-        <span class="contactRow">
+        </li>
+        <li class="contactRow">
             <Icon name="uil:map-marker" />
             ul. Pana Balcera 6/88 20-631 Lublin
-        </span>
-    </div>
+        </li>
+    </ul>
 </div>
 
 <style>
@@ -79,7 +79,7 @@ const t = useTranslations(lang);
         border-radius: 30px;
 
         background-image: linear-gradient(45deg, rgba(123, 17, 249, 1), rgba(121, 34, 216, 1) 60%, rgb(64, 64, 217));
-        color: var(--light);
+        color: var(--secondaryText);
         padding: 30px;
 
         margin-top: 70px;
@@ -100,13 +100,16 @@ const t = useTranslations(lang);
         font-weight: 500;
         font-size: 36px;
         text-align: center;
+        margin: 0;
     }
 
     .infoDesc{
         font-weight: 400;
         font-size: 18px;
-        color: rgba(255,255,255,0.7);
+        color: var(--secondaryText);
+        opacity: 0.7;
         text-align: center;
+        margin: 0;
     }
 
     .infoImage{
@@ -193,6 +196,8 @@ const t = useTranslations(lang);
         gap: 5px;
         justify-content: start;
         align-items: center;
+        padding: 0;
+        margin: 0;
         margin-top: 2%;
     }
 
@@ -207,7 +212,7 @@ const t = useTranslations(lang);
 
     .borderRow{
         border: 1px solid var(--light);
-        background-color: rgba(255,255,255,0.1);
+        background-color: var(--lightTransparent);
         border-radius: 8px;
     }
 

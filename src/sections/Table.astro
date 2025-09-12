@@ -14,50 +14,55 @@
     </div>
     <div class="layer">
         <div class="card">
-            <span style="font-weight: 400; width: 100%;">Lorem ipsum</span>
-            <span style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </span>
+            <p style="font-weight: 400; width: 100%;">Lorem ipsum</p>
+            <p style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
         </div>
         <div class="card">
-            <span style="font-weight: 400; width: 100%;">Lorem ipsum</span>
-            <span style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </span>
+            <p style="font-weight: 400; width: 100%;">Lorem ipsum</p>
+            <p style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
         </div>
         <div class="card">
-            <span style="font-weight: 400; width: 100%;">Lorem ipsum</span>
-            <span style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </span>
-        </div>
-    </div>
-    <div class="layer">
-        <div class="card">
-            <span style="font-weight: 400; width: 100%;">Lorem ipsum</span>
-            <span style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </span>
-        </div>
-        <div class="card">
-            <span style="font-weight: 400; width: 100%;">Lorem ipsum</span>
-            <span style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </span>
-        </div>
-        <div class="card">
-            <span style="font-weight: 400; width: 100%;">Lorem ipsum</span>
-            <span style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </span>
+            <p style="font-weight: 400; width: 100%;">Lorem ipsum</p>
+            <p style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
         </div>
     </div>
     <div class="layer">
         <div class="card">
-            <span style="font-weight: 400; width: 100%;">Lorem ipsum</span>
-            <span style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </span>
+            <p style="font-weight: 400; width: 100%;">Lorem ipsum</p>
+            <p style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
         </div>
         <div class="card">
-            <span style="font-weight: 400; width: 100%;">Lorem ipsum</span>
-            <span style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </span>
+            <p style="font-weight: 400; width: 100%;">Lorem ipsum</p>
+            <p style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
         </div>
         <div class="card">
-            <span style="font-weight: 400; width: 100%;">Lorem ipsum</span>
-            <span style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </span>
+            <p style="font-weight: 400; width: 100%;">Lorem ipsum</p>
+            <p style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+        </div>
+    </div>
+    <div class="layer">
+        <div class="card">
+            <p style="font-weight: 400; width: 100%;">Lorem ipsum</p>
+            <p style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+        </div>
+        <div class="card">
+            <p style="font-weight: 400; width: 100%;">Lorem ipsum</p>
+            <p style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+        </div>
+        <div class="card">
+            <p style="font-weight: 400; width: 100%;">Lorem ipsum</p>
+            <p style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
         </div>
     </div>
 
 </div>
 
 <style>
+    p{
+        margin: 0;
+        padding: 0;
+    }
+
     .tableLayout{
         width: 60%;
         position: relative;
@@ -113,9 +118,9 @@
     }
 
     .horizontal > .line{
-        width: 100vw;
+        width: 98.5vw;
         height: 1px;
-        transform: translateX(-20%);
+        transform: translateX(-19.8%);
         background: linear-gradient(to right, rgba(131, 131, 131, 1) 0, transparent 60%, rgba(131, 131, 131, 1) 100%);
     }
 
@@ -132,6 +137,7 @@
     }
 
     @media only screen and (max-width: 1100px){
+
         .layer{
             flex-direction: column;
             gap: 10px;
@@ -150,7 +156,7 @@
         }
 
         .card{
-            padding: 20px;
+            padding: 20px 0px;
             width: calc(100% - 20px);
             border-width: 0px;
             border-bottom-width: 1px;
@@ -163,7 +169,7 @@
             border: unset;
         }
 
-        .card > span{
+        .card > p{
             max-width: 60%;
             text-align: center;
         }

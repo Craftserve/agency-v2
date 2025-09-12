@@ -2,17 +2,24 @@
 ---
 
 <div class="wrapper">
-    <span class="title">Vitresoft 2025</span>
-    <span class="subtitle">Copyright © 2011 - 2025 Craftserve.</span>
+    <h1 class="title">Vitresoft 2025</h1>
+    <p class="subtitle">Copyright © 2011 - 2025 Craftserve.</p>
 </div>
 
 <style>
     .title, .subtitle{
         color: var(--dark);
+        margin: 0;
+        padding: 0;
     }
     
     .title{
         font-weight: 700;
+        font-size: medium;
+    }
+
+    .subtitle{
+        font-size: small;
     }
 
     .wrapper{
@@ -22,5 +29,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap: 4px;
     }
 </style>

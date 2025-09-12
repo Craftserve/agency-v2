@@ -1,4 +1,6 @@
 :root {
+    --primaryText: #0c0c0c;
+    --secondaryText: #ffffff;
     --dark: #0c0c0cff;
     --darkDimmed: #0c0c0c2b;
     --primary: #6809EE;
@@ -7,6 +9,7 @@
     --secondaryLight: #E1E6F1;
     --light: #ffffffff;
     --lightDimmed: #e1e6f14d;
+    --lightTransparent: #ffffff1a;
     --placeholder: #AEB4C2;
     --success: #73FF8D;
     --warning: #F9FF3C;
@@ -19,6 +22,5 @@ body {
     margin: 0;
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
     scroll-behavior: smooth;
 }

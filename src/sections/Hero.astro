@@ -15,11 +15,11 @@ const headerContent = t("header").split("|");
 
 <div class="wrapper">
     <div class="infoContainer">
-        <span class="title">
+        <h1 class="title">
             {headerContent.map((chunk: string) => {
                 return <>{chunk} <br /></>
             })}
-        </span>
+        </h1>
         <div class="buttonsContainer">
             <Link variant="primary" href={routes[0].url}>
                 <Icon name="uil:phone" width={30} height={30} />
@@ -47,7 +47,7 @@ const headerContent = t("header").split("|");
         position: relative;
         padding: 20px;
         z-index: 1;
-        width: 90%;
+        width: calc(90% - 10px);
         margin-bottom: 30px;
     }
 
@@ -69,6 +69,7 @@ const headerContent = t("header").split("|");
         font-size: 50pt;
         font-weight: 700;
         letter-spacing: -2px;
+        margin: 0;
     }
 
     .imageContainer{
