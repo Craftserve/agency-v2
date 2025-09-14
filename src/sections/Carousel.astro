@@ -1,13 +1,11 @@
 ---
-
 import { Image } from "astro:assets";
 import LogoDark from "../assets/LogoDark.svg";
-
 ---
 
 <div class="wrapper">
     <div class="embla" id="embla">
-        <div class="embla__container">  
+        <div class="embla__container">
             <div class="embla__slide">
                 <Image src={LogoDark} alt="logo" width={100} height={100} />
             </div>
@@ -30,22 +28,21 @@ import LogoDark from "../assets/LogoDark.svg";
     </div>
 </div>
 
-
 <script>
-    import EmblaCarousel from 'embla-carousel';
+    import EmblaCarousel from "embla-carousel";
     import Autoscroll from "embla-carousel-auto-scroll";
 
-    const emblaNode = document.getElementById('embla');
+    const emblaNode = document.getElementById("embla");
     const options = { loop: true, speed: 5, startDelay: 0, stopOnInteraction: false, stopOnFocusIn: false };
     const plugins = [Autoscroll()];
 
-    if(emblaNode){
+    if (emblaNode) {
         EmblaCarousel(emblaNode, options, plugins);
     }
 </script>
 
 <style>
-    .wrapper{
+    .wrapper {
         width: 100%;
     }
 
@@ -75,7 +72,7 @@ import LogoDark from "../assets/LogoDark.svg";
         border-radius: 20px;
     }
 
-    .embla__slide:not(:first-child){
+    .embla__slide:not(:first-child) {
         margin-left: 20px;
     }
 </style>
