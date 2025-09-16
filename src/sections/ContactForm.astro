@@ -1,0 +1,236 @@
+---
+import { Icon } from "astro-icon/components"
+import { Image } from "astro:assets"
+import LogoDark from "../../src/assets/LogoDark.svg";
+import starsIconGroupWhite from "../../src/assets/starsIconGroupWhite.svg";
+import Input from "../components/Input.astro";
+import Button from "../components/Button.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+---
+
+<div class="wrapper" id="formSection">
+    <div class="infoWrapper">
+        <h2 class="infoTitle">{t("formTitle")}</h2>
+        <p class="infoDesc">{t("formDesc")}</p>
+        <Image class="infoImage" src={starsIconGroupWhite} alt="stars" width={500} />
+    </div>
+    <div class="formWrapper">
+        <div class="formTopBar">
+            <Image src={LogoDark} alt="logo" width={30} height={30} />
+        </div>
+        <form class="formContainer">
+            <div class="formSections">
+                <div class="formTopSection">
+                    <div class="formTopSectionInput">
+                        <Input type="text" placeholder={t("name")} name="name" />
+                    </div>
+                    <div class="formTopSectionInput">
+                        <Input type="text" placeholder={t("surname")} name="surname" />
+                    </div>
+                    <div class="formTopSectionInput">
+                        <Input type="tel" placeholder={t("phone")} name="tel" />
+                    </div>
+                    <div class="formTopSectionInput">
+                        <Input type="text" placeholder={t("subject")} name="subject" />
+                    </div>
+                </div>
+                <div class="formBottomSection">
+                    <Input type="email" placeholder={t("email")} name="email" />
+                    <Input type="text" placeholder={t("company")} name="company" />
+                    <Input type="text" placeholder={t("content")} name="content" />
+                </div>
+            </div>
+            <div class="formButtonContainer">
+                <Button variant="primary" id="formSubmitButton">{t("send")}</Button>
+            </div>
+        </form>
+    </div>
+    <ul class="contactWrapper">
+        <li class="contactRow">
+            <Icon name="uil:phone" />
+            +123 456 789
+        </li>
+        <li class="contactRow borderRow">
+            <Icon name="uil:envelope-alt" />
+            biuro@vitresoft.com
+        </li>
+        <li class="contactRow">
+            <Icon name="uil:map-marker" />
+            ul. Pana Balcera 6/88 20-631 Lublin
+        </li>
+    </ul>
+</div>
+
+<style>
+    .wrapper{
+        width: 900px;
+        height: 470px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+        position: relative;
+
+        border-radius: 30px;
+
+        background-image: linear-gradient(45deg, rgba(123, 17, 249, 1), rgba(121, 34, 216, 1) 60%, rgb(64, 64, 217));
+        color: var(--secondaryText);
+        padding: 30px;
+
+        margin-top: 70px;
+    }
+
+    .infoWrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        gap: 20px;
+
+        width: 50%;
+        height: 55%;
+        position: relative;
+    }
+
+    .infoTitle{
+        font-weight: 500;
+        font-size: 36px;
+        text-align: center;
+        margin: 0;
+    }
+
+    .infoDesc{
+        font-weight: 400;
+        font-size: 18px;
+        color: var(--secondaryText);
+        opacity: 0.7;
+        text-align: center;
+        margin: 0;
+    }
+
+    .infoImage{
+        position: absolute;
+        right: -2%;
+        top: 10%;
+        opacity: 0.25;
+        filter: blur(2px);
+    }
+
+    .formWrapper{
+        width: 45%;
+        height: 90%;
+
+        display: flex;
+        flex-direction: column;
+
+        border-radius: 20px;
+
+        position: absolute;
+        top: 50%;
+        right: 2.5%;
+
+        transform: translateY(-50%);
+        
+        background-color: var(--light);
+    }
+
+    .formTopBar{
+        height: 10%;
+        padding: 20px 20px 0px;
+    }
+
+    .formContainer{
+        width: 100%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .formSections{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .formTopSection{
+        padding: 20px 20px 0px;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 15px;
+    }
+
+    .formTopSectionInput{
+        width: 47%;
+    }
+
+    .formBottomSection{
+        margin-top: 15px;
+        padding: 0px 20px 20px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .formButtonContainer{
+        padding: 20px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contactWrapper{
+        width: 50%;
+        height: 40%;
+
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        justify-content: start;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        margin-top: 2%;
+    }
+
+    .contactRow{
+        width: max-content;
+        padding: 10px;
+
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    .borderRow{
+        border: 1px solid var(--light);
+        background-color: var(--lightTransparent);
+        border-radius: 8px;
+    }
+
+    @media only screen and (max-width: 1115px){
+        .wrapper{
+            width: 80%;
+            height:unset;
+            padding: 30px;
+            gap: 30px;
+        }
+
+        .formWrapper{
+            position: unset;
+            transform: unset;
+        }
+
+        .infoWrapper, .contactWrapper, .formWrapper{
+            width: 100%;
+        }
+    }
+</style>
