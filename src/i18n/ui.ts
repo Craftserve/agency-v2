@@ -1,5 +1,10 @@
 export const defaultLang = "pl-PL";
 
+export const langs = [
+    "en",
+    "pl-PL",
+]
+
 export const ui = {
     "en": {
         "example": "test",
@@ -11,6 +16,7 @@ export const ui = {
         "header": "Today is your| day to grow| in ideas.",
 
         "aboutUrl": "about",
+        "language": "EN",
         "contactUrl": "#formSection",
         
         "name": "Name",
@@ -35,6 +41,7 @@ export const ui = {
         "header": "Dziś jest Twój| dzień, aby urosnąć| w ideach.",
 
         "aboutUrl": "o-nas",
+        "language": "PL",
         "contactUrl": "#formSection",
 
         "name": "Imię",
