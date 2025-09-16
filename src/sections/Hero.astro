@@ -1,9 +1,9 @@
 ---
+import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import starsIconGroup from "../assets/starsIconGroup.svg";
 import Link from "../components/Link.astro";
 import { getLangFromUrl, getRoutes, useTranslations } from "../i18n/utils";
-import { Icon } from 'astro-icon/components';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -25,7 +25,7 @@ const headerContent = t("header").split("|");
                 <Icon name="uil:phone" width={30} height={30} />
                 {t("joinus")}
             </Link>
-            <Link variant="outlined" href={routes[1].url} >
+            <Link variant="outlined" href={routes[1].url}>
                 <Icon name="uil:info-circle" width={30} height={30} />
                 <div style="display: flex; flex-direction: column;">
                     <span style="font-weight: 400; font-size: 10pt;">{t("learnmore")}</span>
@@ -34,13 +34,11 @@ const headerContent = t("header").split("|");
             </Link>
         </div>
     </div>
-    <Image class="imageContainer" src={starsIconGroup} alt="stars"/>
+    <Image class="imageContainer" src={starsIconGroup} alt="stars" />
 </div>
 
-
-
 <style>
-    .wrapper{
+    .wrapper {
         display: flex;
         flex-direction: row;
         gap: 50px;
@@ -51,7 +49,7 @@ const headerContent = t("header").split("|");
         margin-bottom: 30px;
     }
 
-    .infoContainer{
+    .infoContainer {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -59,20 +57,20 @@ const headerContent = t("header").split("|");
         /* z-index: -1; */
     }
 
-    .buttonsContainer{
+    .buttonsContainer {
         display: flex;
         flex-direction: row;
         gap: 5px;
     }
 
-    .title{
+    .title {
         font-size: 50pt;
         font-weight: 700;
         letter-spacing: -2px;
         margin: 0;
     }
 
-    .imageContainer{
+    .imageContainer {
         position: absolute;
         top: 50%;
         right: 0;
@@ -82,19 +80,17 @@ const headerContent = t("header").split("|");
         z-index: -1;
     }
 
-    @media only screen and (max-width: 1000px){
-        .imageContainer{
+    @media only screen and (max-width: 1000px) {
+        .imageContainer {
             opacity: 0.5;
         }
 
-        .title{
+        .title {
             font-size: 35pt;
         }
 
-        .buttonsContainer{
+        .buttonsContainer {
             flex-direction: column;
         }
     }
-
-
 </style>

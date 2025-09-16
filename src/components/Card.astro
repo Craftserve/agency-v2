@@ -1,6 +1,5 @@
 ---
-import { undefined } from 'astro:schema';
-
+import { undefined } from "astro:schema";
 
 interface Props {
     variant: "light" | "dark";
@@ -11,28 +10,24 @@ interface Props {
 }
 
 const { variant, title = undefined, styles = "" } = Astro.props as Props;
-
 ---
 
 <div class={`wrapper ${variant}`} style={styles}>
     <div class="circlesBar">
-        <div class="circle green" />
-        <div class="circle yellow" />
-        <div class="circle red" />
+        <div class="circle green"></div>
+        <div class="circle yellow"></div>
+        <div class="circle red"></div>
     </div>
 
     <div class="infoContainer">
-        {title && (
-            <span class="title">{title}</span>
-        )}
+        {title && <span class="title">{title}</span>}
 
         <slot />
     </div>
-
 </div>
 
 <style>
-    .wrapper{
+    .wrapper {
         display: flex;
         flex-direction: column;
         border-radius: 12px;
@@ -40,12 +35,12 @@ const { variant, title = undefined, styles = "" } = Astro.props as Props;
         border: 2px solid var(--secondary);
         overflow-y: hidden;
         backdrop-filter: blur(32px);
-        box-shadow: 0px 10px 5px rgba(0,0,0,0.1);
+        box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.1);
         width: 100%;
         height: auto;
     }
 
-    .circlesBar{
+    .circlesBar {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -55,25 +50,25 @@ const { variant, title = undefined, styles = "" } = Astro.props as Props;
         padding-top: 20px;
     }
 
-    .circle{
+    .circle {
         width: 10px;
         height: 10px;
         border-radius: 50%;
     }
 
-    .red{
+    .red {
         background-color: var(--danger);
     }
 
-    .yellow{
+    .yellow {
         background-color: var(--warning);
     }
 
-    .green{
+    .green {
         background-color: var(--success);
     }
 
-    .infoContainer{
+    .infoContainer {
         width: 100%;
         padding: 10px 0px;
         display: flex;
@@ -81,17 +76,17 @@ const { variant, title = undefined, styles = "" } = Astro.props as Props;
         gap: 10px;
     }
 
-    .title{
+    .title {
         font-weight: 700;
         font-size: 20px;
     }
 
-    .light{
+    .light {
         background-color: var(--lightDimmed);
         color: var(--light);
     }
 
-    .dark{
+    .dark {
         background-color: var(--darkDimmed);
         color: var(--light);
     }
