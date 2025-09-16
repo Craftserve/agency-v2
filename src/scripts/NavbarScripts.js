@@ -16,26 +16,22 @@ document.getElementsByClassName("logoContainer")[0].addEventListener("click", ()
     window.location.assign(`/`);
 });
 
-document.getElementsByClassName("languageSection")[0].addEventListener("click", () => {
+document.getElementById("langSwitch").addEventListener("click", () => {
     const lang = getLangFromUrl(new URL(window.location.href));
     const currentLangIndex = langs.indexOf(lang);
 
-    let nextLang;
-
-    if(currentLangIndex == langs.length-1){
-        nextLang = langs[0];
-    }else{
-        nextLang = langs[currentLangIndex+1];
-    }
+    const nextLang = langs[(currentLangIndex + 1) % langs.length];
+    const targetUrl = nextLang.startsWith("pl") ? "/" : `/${nextLang}/`;
 
     const meta = document.createElement("meta");
     meta.httpEquiv = "refresh";
-    document.head.appendChild(meta);
+    meta.content = `0;url=${targetUrl}`;
 
     if (!nextLang.startsWith("pl")) {
-        meta.content = `0;url=/${nextLang}/`;
+        localStorage.setItem("lang", "en-US");
     }else{
-        meta.content = `0;url=/`;
+        localStorage.setItem("lang", "pl-PL");
     }
     
+    document.head.appendChild(meta);
 })
