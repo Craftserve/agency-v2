@@ -3,15 +3,16 @@ import Card from "../components/Card.astro";
 import Row from "../components/Row.astro";
 
 const rowData = [
-    {  id: 1, title: "Event management", text: "from £2,000" },
-    {  id: 2, title: "Event management", text: "from £2,000" },
-    {  id: 3, title: "Event management", text: "from £2,000" },
-    {  id: 4, title: "Event management", text: "from £2,000" },
-    {  id: 5, title: "Event management", text: "from £2,000" },
+    { id: 1, title: "Event management", text: "from £2,000" },
+    { id: 2, title: "Event management", text: "from £2,000" },
+    { id: 3, title: "Event management", text: "from £2,000" },
+    { id: 4, title: "Event management", text: "from £2,000" },
+    { id: 5, title: "Event management", text: "from £2,000" },
 ];
 ---
+
 <div class="wrapper">
-    <div class="imageWrapper" />
+    <div class="imageWrapper"></div>
     <div class="firstCard card">
         <Card variant="dark" title="Lorem ipsum" styles="max-width: 250px;">
             <span>Sketch circle, ellipse, oval. Circular doodle frame, hand drawn pen stroke</span>
@@ -21,27 +22,29 @@ const rowData = [
     <div class="secondCard card">
         <Card variant="light" title="Lorem ipsum" styles="max-width: 250px;">
             <span>Sketch circle, ellipse, oval. Circular doodle frame, hand drawn pen stroke</span>
-            <span>Sketch circle, ellipse, oval. Circular doodle frame, hand drawn pen stroke</span>  
+            <span>Sketch circle, ellipse, oval. Circular doodle frame, hand drawn pen stroke</span>
         </Card>
-        
     </div>
     <div class="thirdCard card">
         <Card variant="dark">
             <div class="items">
-                {rowData.map((item) => (
-                    <Row id={item.id}>
-                        <span slot="left">{item.title}</span>
-                        <span slot="right" style={{fontWeight: "bold"}}>{item.text}</span>
-                    </Row>
-                ))}
-                
+                {
+                    rowData.map((item) => (
+                        <Row id={item.id}>
+                            <span slot="left">{item.title}</span>
+                            <span slot="right" style={{ fontWeight: "bold" }}>
+                                {item.text}
+                            </span>
+                        </Row>
+                    ))
+                }
             </div>
         </Card>
     </div>
 </div>
 
 <style>
-    .wrapper{
+    .wrapper {
         display: flex;
         padding: 20px;
         width: 100%;
@@ -50,7 +53,7 @@ const rowData = [
     }
 
     .imageWrapper {
-        background-image: url('../assets/BG.svg');
+        background-image: url("../assets/BG.svg");
         background-size: 100% 100%;
         background-position: center;
         background-repeat: no-repeat;
@@ -65,7 +68,7 @@ const rowData = [
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
     }
-    
+
     .card {
         position: absolute;
         display: flex;
@@ -87,7 +90,7 @@ const rowData = [
         width: max-content;
         max-width: 283px;
     }
-    
+
     .thirdCard {
         top: 65%;
         left: 51.5%;
@@ -107,7 +110,7 @@ const rowData = [
         gap: 5px;
     }
 
-    @media only screen and (max-width: 1115px){
+    @media only screen and (max-width: 1115px) {
         .wrapper {
             display: flex;
             align-items: center;
@@ -119,21 +122,20 @@ const rowData = [
             padding: 30px;
         }
 
-        .imageWrapper{
+        .imageWrapper {
             width: 90%;
             background-size: cover;
         }
-        
-        .card{
+
+        .card {
             width: max-content;
             width: unset;
             position: unset;
             transform: unset;
         }
 
-        .thirdCard{
+        .thirdCard {
             min-width: 60%;
         }
-
-    }   
+    }
 </style>

@@ -1,8 +1,7 @@
 ---
-import { undefined } from 'astro:schema';
+import { undefined } from "astro:schema";
 
-
-interface Props{
+interface Props {
     href: string | URL;
     variant: "blank" | "primary" | "outlined";
     fullWidth?: boolean;
@@ -14,11 +13,11 @@ const isFullWidth = fullWidth ? "100%" : "fit-content";
 ---
 
 <a class=`link ${variant}` href={href}>
-    <slot/>
+    <slot />
 </a>
 
-<style define:vars={{isFullWidth}}>
-    .link{
+<style define:vars={{ isFullWidth }}>
+    .link {
         text-decoration: none;
         cursor: pointer;
         padding: 10px 20px;
@@ -31,23 +30,24 @@ const isFullWidth = fullWidth ? "100%" : "fit-content";
         justify-content: center;
         gap: 5px;
         min-width: 80px;
-        
+
         width: var(--isFullWidth);
     }
 
-    .primary{ /* dark */
+    .primary {
+        /* dark */
         color: var(--light);
         background-color: var(--dark);
         box-shadow: 0px 5px 5px rgba(12, 12, 12, 0.33);
     }
 
-    .outlined{
+    .outlined {
         color: var(--primary);
         background-color: transparent;
         border: 2px solid var(--primary);
     }
- 
-    .blank{
+
+    .blank {
         color: var(--dark);
     }
 </style>
