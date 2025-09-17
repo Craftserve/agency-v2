@@ -6,6 +6,7 @@ import starsIconGroupWhite from "../../src/assets/starsIconGroupWhite.svg";
 import Input from "../components/Input.astro";
 import Button from "../components/Button.astro";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import Textarea from "../components/Textarea.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -22,7 +23,7 @@ const t = useTranslations(lang);
         <div class="formTopBar">
             <Image src={LogoDark} alt="logo" width={30} height={30} />
         </div>
-        <form class="formContainer">
+        <form class="formContainer" id="form">
             <div class="formSections">
                 <div class="formTopSection">
                     <div class="formTopSectionInput">
@@ -32,20 +33,30 @@ const t = useTranslations(lang);
                         <Input type="text" placeholder={t("surname")} name="surname" />
                     </div>
                     <div class="formTopSectionInput">
-                        <Input type="tel" placeholder={t("phone")} name="tel" />
+                        <Input 
+                            type="tel" 
+                            placeholder={t("phone")}
+                            name="tel"
+                            pattern="[0-9]{3} [0-9]{3} [0-9]{3}|[0-9]{9}"
+                        />
                     </div>
                     <div class="formTopSectionInput">
                         <Input type="text" placeholder={t("subject")} name="subject" />
                     </div>
                 </div>
                 <div class="formBottomSection">
-                    <Input type="email" placeholder={t("email")} name="email" />
+                    <Input 
+                        type="email" 
+                        placeholder={t("email")} 
+                        name="email" 
+                    />
                     <Input type="text" placeholder={t("company")} name="company" />
-                    <Input type="text" placeholder={t("content")} name="content" />
+                    <Textarea placeholder={t("content")} name="content" />
                 </div>
             </div>
+            <span id="errorMessage"></span>
             <div class="formButtonContainer">
-                <Button variant="primary" id="formSubmitButton">{t("send")}</Button>
+                <Button variant="primary" type="submit" id="formSubmitButton">{t("send")}</Button>
             </div>
         </form>
     </div>
@@ -65,6 +76,33 @@ const t = useTranslations(lang);
     </ul>
 </div>
 
+<script>
+    import { type FormFields} from "../types.ts";
+    import { sendTicket } from "../scripts/api.ts";
+    import { validateContactForm } from "../scripts/helpers.ts"
+
+    const form = document.getElementById("form") as HTMLFormElement;
+    const errorMessageSpan = document.getElementById("errorMessage");
+
+    form?.addEventListener("submit", async (e: SubmitEvent) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries()) as unknown as FormFields;
+        const validation = validateContactForm(data);
+
+        if(!validation && errorMessageSpan != null){
+            errorMessageSpan.innerText = "Please ensure all required fields are filled out correctly before submitting.";
+        }
+
+        const response = await sendTicket(data);
+
+        // jezeli response jest pozytywny to wtedy zmieniamy widok formularza na wyslany
+    })
+
+
+</script>
+
 <style>
     .wrapper{
         width: 900px;
@@ -83,6 +121,12 @@ const t = useTranslations(lang);
         padding: 30px;
 
         margin-top: 70px;
+    }
+
+    #errorMessage{
+        color: red;
+        width: calc(100% - 40px);
+        padding: 0px 20px;
     }
 
     .infoWrapper{
@@ -118,6 +162,11 @@ const t = useTranslations(lang);
         top: 10%;
         opacity: 0.25;
         filter: blur(2px);
+        z-index: -1;
+    }
+
+    .infoWrapper, .formWrapper, .contactWrapper{
+        z-index: 1;
     }
 
     .formWrapper{
