@@ -36,8 +36,7 @@ const t = useTranslations(lang);
                         <Input 
                             type="tel" 
                             placeholder={t("phone")}
-                            name="tel"
-                            pattern="[0-9]{3} [0-9]{3} [0-9]{3}|[0-9]{9}"
+                            name="phone"
                         />
                     </div>
                     <div class="formTopSectionInput">
@@ -54,7 +53,9 @@ const t = useTranslations(lang);
                     <Textarea placeholder={t("content")} name="content" />
                 </div>
             </div>
-            <span id="errorMessage"></span>
+            <div class="errorMessageContainer">
+                <span id="errorMessage"></span>
+            </div>
             <div class="formButtonContainer">
                 <Button variant="primary" type="submit" id="formSubmitButton">{t("send")}</Button>
             </div>
@@ -89,15 +90,17 @@ const t = useTranslations(lang);
 
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries()) as unknown as FormFields;
+        console.log(data);
         const validation = validateContactForm(data);
 
         if(!validation && errorMessageSpan != null){
             errorMessageSpan.innerText = "Please ensure all required fields are filled out correctly before submitting.";
+            return;
         }
 
-        const response = await sendTicket(data);
+        const response = await sendTicket(data); 
 
-        // jezeli response jest pozytywny to wtedy zmieniamy widok formularza na wyslany
+        // if response is positive, change the view to "sent form view"
     })
 
 
@@ -123,9 +126,16 @@ const t = useTranslations(lang);
         margin-top: 70px;
     }
 
+    .errorMessageContainer{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     #errorMessage{
         color: red;
-        width: calc(100% - 40px);
+        width: 100%;
         padding: 0px 20px;
     }
 
