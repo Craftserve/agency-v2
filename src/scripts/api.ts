@@ -15,12 +15,12 @@ export const sendTicket = async (data: FormFields) => {
                         "name": `${data.name} ${data.surname}`,
                         "email": `${data.email}`
                     },
-                    "subject": `${data.subject}`,
+                    "subject": `[AGENCY] ${data.subject}`,
                     "comment": {
                         "body": `
                         Firma: ${data.company}\n
                         Numer telefonu kontaktowego: ${data.phone}\n
-                        Treść: "${data.content}"
+                        Treść: ${data.content}
                         `
                     },
                     "tags": ["agency", "contact_form"]
