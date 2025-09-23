@@ -1,17 +1,18 @@
 {
     "hero": {
-        "header": "Dziś jest Twój| dzień, aby urosnąć| w ideach."
+        "header": "__NOT_TRANSLATED__"
     },
     "iconsSection": {
-        "perfect": "Idealne dla freelancerów",
-        "time": "Szybki czas realizacji usług"
+        "perfect": "__NOT_TRANSLATED__",
+        "time": "__NOT_TRANSLATED__"
     },
     "links": {
         "about": "Dlaczego my",
-        "aboutus": "Więcej o nas",
+        "aboutus": "__NOT_TRANSLATED__",
+        "aboutus2": "__NOT_TRANSLATED__",
         "contact": "Kontakt",
-        "joinus": "Dołącz do nas",
-        "learnmore": "dowiedz się"
+        "joinus": "__NOT_TRANSLATED__",
+        "learnmore": "__NOT_TRANSLATED__"
     },
     "urls": {
         "about": "o-nas",

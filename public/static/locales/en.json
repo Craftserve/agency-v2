@@ -1,17 +1,18 @@
 {
     "hero": {
-        "header": "Today is your| day to grow| in ideas."
+        "header": "__NOT_TRANSLATED__"
     },
     "iconsSection": {
-        "perfect": "Perfect for freelancers",
-        "time": "Quick service delivery time"
+        "perfect": "__NOT_TRANSLATED__",
+        "time": "__NOT_TRANSLATED__"
     },
     "links": {
         "about": "About",
-        "aboutus": "About us",
+        "aboutus": "__NOT_TRANSLATED__",
+        "aboutus2": "__NOT_TRANSLATED__",
         "contact": "Contact",
-        "joinus": "Join us",
-        "learnmore": "learn more"
+        "joinus": "__NOT_TRANSLATED__",
+        "learnmore": "__NOT_TRANSLATED__"
     },
     "urls": {
         "about": "about",

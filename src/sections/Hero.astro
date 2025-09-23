@@ -16,7 +16,8 @@ const mapping = {
     join: t("links.joinus"),
     learn: t("links.learnmore"),
     about: t("links.aboutus"),
-}
+    about2: t("links.aboutus2"),
+};
 ---
 
 <div class="wrapper">
@@ -33,6 +34,7 @@ const mapping = {
             }
         </span>
         <div class="buttonsContainer">
+            {t("dupa.dupa")}
             <Link variant="primary" href={routes[0].url}>
                 <Icon name="uil:phone" width={30} height={30} />
                 {mapping.join}

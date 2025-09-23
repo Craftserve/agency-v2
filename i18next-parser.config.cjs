@@ -1,7 +1,9 @@
+import AstroLexerModule from "./lexers/astro-lexer.js";
+
+const AstroLexer = AstroLexerModule.default ?? AstroLexerModule;
+
 export default {
-    input: [
-        "src/**/*.{js,ts,jsx,tsx,astro}",
-    ],
+    input: ["src/**/*.{js,ts,jsx,tsx,astro}"],
     contextSeparator: ":",
     // Key separator used in your translation keys
     createOldCatalogs: false,
@@ -20,12 +22,19 @@ export default {
     // see below for more details
     lexers: {
         ts: ["JavascriptLexer"],
+        html: [
+            {
+                lexer: "HTMLLexer",
+                attr: "data-i18n", // Attribute for the keys
+                optionAttr: "data-i18n-options",
+            },
+        ],
         tsx: ["JsxLexer"],
         astro: [
             {
-                lexer: "JavascriptLexer",
-                functions: ["t"]
-            }
+                lexer: [AstroLexer],
+                functions: ["t"],
+            },
         ],
         default: ["JavascriptLexer"],
     },
