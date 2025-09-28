@@ -1,28 +1,38 @@
 ---
 import Card from "../components/Card.astro";
 import Row from "../components/Row.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const rowData = [
-    { id: 1, title: "Event management", text: "from £2,000" },
-    { id: 2, title: "Event management", text: "from £2,000" },
-    { id: 3, title: "Event management", text: "from £2,000" },
-    { id: 4, title: "Event management", text: "from £2,000" },
-    { id: 5, title: "Event management", text: "from £2,000" },
+    { id: 1, title: t("Offers.Offer1.Header"), text: t("Offers.Offer1.Price") },
+    { id: 2, title: t("Offers.Offer2.Header"), text: t("Offers.Offer2.Price") },
+    { id: 3, title: t("Offers.Offer3.Header"), text: t("Offers.Offer3.Price") },
+    { id: 4, title: t("Offers.Offer4.Header"), text: t("Offers.Offer4.Price") },
+    { id: 5, title: t("Offers.Offer5.Header"), text: t("Offers.Offer5.Price") },
 ];
 ---
 
 <div class="wrapper">
     <div class="imageWrapper"></div>
     <div class="firstCard card">
-        <Card variant="dark" title="Lorem ipsum" styles="max-width: 250px;">
-            <p>Sketch circle, ellipse, oval. Circular doodle frame, hand drawn pen stroke</p>
-            <p>Sketch circle, ellipse, oval. Circular doodle frame, hand drawn pen stroke</p>
+        <!-- t("Offers.Card1.Title") -->
+        <Card variant="dark" title={t("Offers.Card1.Title")} styles="max-width: 250px;">
+            <!-- t("Offers.Card1.Paragraph1") -->
+            <!-- t("Offers.Card1.Paragraph2") -->
+            <p>{t("Offers.Card1.Paragraph1")}</p>
+            <p>{t("Offers.Card1.Paragraph2")}</p>
         </Card>
     </div>
     <div class="secondCard card">
-        <Card variant="light" title="Lorem ipsum" styles="max-width: 250px;">
-            <p>Sketch circle, ellipse, oval. Circular doodle frame, hand drawn pen stroke</p>
-            <p>Sketch circle, ellipse, oval. Circular doodle frame, hand drawn pen stroke</p>  
+        <!-- t("Offers.Card2.Title") -->
+        <Card variant="light" title={t("Offers.Card2.Title")} styles="max-width: 250px;">
+            <!-- t("Offers.Card2.Paragraph1") -->
+            <!-- t("Offers.Card2.Paragraph2") -->
+            <p>{t("Offers.Card2.Paragraph1")}</p>
+            <p>{t("Offers.Card2.Paragraph2")}</p>  
         </Card>
     </div>
     <div class="thirdCard card">

@@ -18,13 +18,13 @@ const routes = getRoutes(Astro.url);
             <h1 style="font-weight: 700; font-size: medium;">Vitresoft</h1>
         </button>
     
-
         <div class="hamburger-menu">
             {routes.map((route) => {
                 return <Link variant="blank" href={route.url}>{route.name}</Link>
             })}
             <button class="languageSection" id="langSwitch">
-                <span style="font-weight: 700;">{t("language")}</span>
+                <!-- t("language.current") -->
+                <span style="font-weight: 700;">{t("language.current")}</span>
                 <Icon name="uil:globe" width={25} height={25} />
             </button>
         </div>

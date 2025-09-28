@@ -1,10 +1,26 @@
 {
+    "ContactForm": {
+        "Company": "Company",
+        "Content": "Content",
+        "Description": "You will receive a response at the provided email address within 24 hours. We will address all your questions and propose solutions tailored to the specified budget.",
+        "Email": "E-mail",
+        "Error": "Please ensure all required fields are filled out correctly before submitting.",
+        "Name": "Name",
+        "Phone": "Phone",
+        "Send": "Send",
+        "Subject": "Subject",
+        "Surname": "Surname",
+        "Title": "Achieve your company’s goals with Vitresoft."
+    },
     "hero": {
         "header": "Today is your| day to grow| in ideas."
     },
     "iconsSection": {
         "perfect": "Perfect for freelancers",
         "time": "Quick service delivery time"
+    },
+    "language": {
+        "current": "EN"
     },
     "links": {
         "about": "About",
@@ -13,8 +29,39 @@
         "joinus": "Join us",
         "learnmore": "learn more"
     },
+    "Offers": {
+        "Card1": {
+            "Paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mi nunc, condimentum vitae lectus eget, dapibus luctus ex.",
+            "Paragraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mi nunc, condimentum vitae lectus eget, dapibus luctus ex.",
+            "Title": "Lorem Ipsum"
+        },
+        "Card2": {
+            "Paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mi nunc, condimentum vitae lectus eget, dapibus luctus ex.",
+            "Paragraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mi nunc, condimentum vitae lectus eget, dapibus luctus ex.",
+            "Title": "Lorem Ipsum"
+        },
+        "Offer1": {
+            "Header": "Event Planning",
+            "Price": "from 100 USD"
+        },
+        "Offer2": {
+            "Header": "Event Managment",
+            "Price": "from 500 USD"
+        },
+        "Offer3": {
+            "Header": "Event Marketing",
+            "Price": "from 300 USD"
+        },
+        "Offer4": {
+            "Header": "Event Setup",
+            "Price": "from 800 USD"
+        },
+        "Offer5": {
+            "Header": "Consultation",
+            "Price": "from 200 USD"
+        }
+    },
     "urls": {
-        "about": "about",
-        "contact": "contact"
+        "about": "about"
     }
 }

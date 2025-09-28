@@ -1,10 +1,26 @@
 {
+    "ContactForm": {
+        "Company": "Firma",
+        "Content": "Treść",
+        "Description": "Otrzymasz odpowiedź na podany adres email w przeciągu 24 godzin. Odpowiemy na wszystkie nurtujące pytania i zaproponujemy rozwiązania do przedstawionego budżetu",
+        "Email": "E-mail",
+        "Error": "Proszę upewnić się, że wszystkie wymagane pola zostały poprawnie wypełnione przed przesłaniem.",
+        "Name": "Imię",
+        "Phone": "Telefon",
+        "Send": "Wyślij",
+        "Subject": "Temat",
+        "Surname": "Nazwisko",
+        "Title": "Ukończ cele swojej firmy z Vitresoft"
+    },
     "hero": {
         "header": "Dziś jest Twój| dzień, aby urosnąć| w ideach."
     },
     "iconsSection": {
         "perfect": "Idealne dla freelancerów",
         "time": "Szybki czas realizacji usług"
+    },
+    "language": {
+        "current": "PL"
     },
     "links": {
         "about": "Dlaczego my",
@@ -13,8 +29,39 @@
         "joinus": "Dołącz do nas",
         "learnmore": "dowiedz się"
     },
+    "Offers": {
+        "Card1": {
+            "Paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mi nunc, condimentum vitae lectus eget, dapibus luctus ex.",
+            "Paragraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mi nunc, condimentum vitae lectus eget, dapibus luctus ex.",
+            "Title": "Lorem Ipsum"
+        },
+        "Card2": {
+            "Paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mi nunc, condimentum vitae lectus eget, dapibus luctus ex.",
+            "Paragraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mi nunc, condimentum vitae lectus eget, dapibus luctus ex.",
+            "Title": "Lorem Ipsum"
+        },
+        "Offer1": {
+            "Header": "Planowanie Wydarzenia",
+            "Price": "od 400 PLN"
+        },
+        "Offer2": {
+            "Header": "Zarządzanie Wydarzeniem",
+            "Price": "od 2000 PLN"
+        },
+        "Offer3": {
+            "Header": "Reklama Wydarzenia",
+            "Price": "od 1200 PLN"
+        },
+        "Offer4": {
+            "Header": "Ustawienie Wydarzenia",
+            "Price": "od 3200 PLN"
+        },
+        "Offer5": {
+            "Header": "Konsultacja",
+            "Price": "od 800 PLN"
+        }
+    },
     "urls": {
-        "about": "o-nas",
-        "contact": "kontakt"
+        "about": "o-nas"
     }
 }

@@ -1,0 +1,49 @@
+---
+import { Icon } from "astro-icon/components";
+import Link from "../components/Link.astro";
+import { getLangFromUrl, getRoutes, useTranslations } from "../i18n/utils";
+import Carousel from "../sections/Carousel.astro";
+import ContactForm from "../sections/ContactForm.astro";
+import Hero from "../sections/Hero.astro";
+import Icons from "../sections/Icons.astro";
+import Offers from "../sections/Offers.astro";
+import Table from "../sections/Table.astro";
+
+const routes = getRoutes(Astro.url);
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+---
+
+<>
+    <div class="infoContainer">
+		<Hero />
+		<Offers />
+	</div>
+	<Icons />
+    <div class="joinUsBtn">
+        <Link variant="primary" href={routes[0].url}>
+            <Icon name="uil:phone" width={30} height={30} />
+            {t("links.joinus")}
+        </Link>
+    </div>
+    
+	<Table />
+	<Carousel />
+	<ContactForm />
+</>
+
+<style>
+    .infoContainer {
+        max-width: 1000px;
+        width: 100%;
+        height: max-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .joinUsBtn{
+        margin-top: 30px;
+    }
+</style>

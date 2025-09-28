@@ -93,71 +93,6 @@ const contentData: (IconItem | ImageItem)[] = [
 </div>
 
 <style>
-.container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 20px 0px;
-    max-width: 1000px;
-    height: 100%;
-    gap: 30px;
-    padding: 20px 0px;
-    z-index: 1;
-}
-
-.item-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    height: 50%;
-}
-
-.item {
-    height: 100%;
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    font-size: 20px;
-    font-weight: bold;
-
-    span {
-        text-align: center;
-    }
-}
-
-.icon {
-    height: 5rem;
-    width: 5rem;
-}
-
-.styledParagraph{
-    margin: 0;
-    text-align: center;
-}
-
-.styledText {
-    text-align: center;
-    position: relative;
-}
-
-.styledText::before {
-    content: "";
-    position: absolute;
-    top: 22px;
-    left: 35px;
-    height: 30px;
-    width: 155px;
-    background-color: #6809EE1A;
-    transform: rotate(-7deg);
-}
-
-@media only screen and (max-width: 768px){
     .container {
         display: flex;
         flex-direction: column;
@@ -166,7 +101,7 @@ const contentData: (IconItem | ImageItem)[] = [
         max-width: 1000px;
         height: 100%;
         gap: 30px;
-        padding: 20px;
+        padding: 20px 0px;
         z-index: 1;
     }
 
@@ -182,7 +117,7 @@ const contentData: (IconItem | ImageItem)[] = [
 
     .item {
         height: 100%;
-        width: 25%;
+        width: 18%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -190,15 +125,17 @@ const contentData: (IconItem | ImageItem)[] = [
         gap: 10px;
         font-size: 20px;
         font-weight: bold;
-
-        span {
-            text-align: center;
-        }
     }
 
     .icon {
         height: 5rem;
         width: 5rem;
+    }
+
+    .styledParagraph{
+        margin: 0;
+        text-align: center;
+        font-size: 1.1rem;
     }
 
     .styledText {
@@ -209,12 +146,12 @@ const contentData: (IconItem | ImageItem)[] = [
     .styledText::before {
         content: "";
         position: absolute;
-        top: 22px;
-        left: 35px;
+        top: 50%;
+        left: 50%;
         height: 30px;
         width: 155px;
-        background-color: #6809ee1a;
-        transform: rotate(-7deg);
+        background-color: #6809EE1A;
+        transform: rotate(-7deg) translateX(-50%) translateY(-50%);
     }
 
     @media only screen and (max-width: 768px) {
@@ -222,6 +159,7 @@ const contentData: (IconItem | ImageItem)[] = [
             flex-direction: row;
             gap: 5px;
             padding: 20px 0px;
+            width: 80%;
         }
 
         .item-wrapper {
@@ -235,21 +173,18 @@ const contentData: (IconItem | ImageItem)[] = [
             width: 100%;
         }
 
-        .styledText::before {
-            top: 0px;
-            left: 90px;
+        .styledParagraph{
+            font-size: 1rem;
+            width: 80%;
+        }
+
+        .styledText::before{
+            width: 120px;
         }
 
         .icon {
             height: 4rem;
             width: 4rem;
-        }
-    }
-
-    @media only screen and (max-width: 493px) {
-        .styledText::before {
-            top: 22px;
-            left: 45px;
         }
     }
 </style>

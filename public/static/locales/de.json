@@ -1,10 +1,26 @@
 {
+    "ContactForm": {
+        "Company": "__NOT_TRANSLATED__",
+        "Content": "__NOT_TRANSLATED__",
+        "Description": "__NOT_TRANSLATED__",
+        "Email": "__NOT_TRANSLATED__",
+        "Error": "__NOT_TRANSLATED__",
+        "Name": "__NOT_TRANSLATED__",
+        "Phone": "__NOT_TRANSLATED__",
+        "Send": "__NOT_TRANSLATED__",
+        "Subject": "__NOT_TRANSLATED__",
+        "Surname": "__NOT_TRANSLATED__",
+        "Title": "__NOT_TRANSLATED__"
+    },
     "hero": {
         "header": "__NOT_TRANSLATED__"
     },
     "iconsSection": {
         "perfect": "__NOT_TRANSLATED__",
         "time": "__NOT_TRANSLATED__"
+    },
+    "language": {
+        "current": "__NOT_TRANSLATED__"
     },
     "links": {
         "about": "__NOT_TRANSLATED__",
@@ -13,8 +29,39 @@
         "joinus": "__NOT_TRANSLATED__",
         "learnmore": "__NOT_TRANSLATED__"
     },
+    "Offers": {
+        "Card1": {
+            "Paragraph1": "__NOT_TRANSLATED__",
+            "Paragraph2": "__NOT_TRANSLATED__",
+            "Title": "__NOT_TRANSLATED__"
+        },
+        "Card2": {
+            "Paragraph1": "__NOT_TRANSLATED__",
+            "Paragraph2": "__NOT_TRANSLATED__",
+            "Title": "__NOT_TRANSLATED__"
+        },
+        "Offer1": {
+            "Header": "__NOT_TRANSLATED__",
+            "Price": "__NOT_TRANSLATED__"
+        },
+        "Offer2": {
+            "Header": "__NOT_TRANSLATED__",
+            "Price": "__NOT_TRANSLATED__"
+        },
+        "Offer3": {
+            "Header": "__NOT_TRANSLATED__",
+            "Price": "__NOT_TRANSLATED__"
+        },
+        "Offer4": {
+            "Header": "__NOT_TRANSLATED__",
+            "Price": "__NOT_TRANSLATED__"
+        },
+        "Offer5": {
+            "Header": "__NOT_TRANSLATED__",
+            "Price": "__NOT_TRANSLATED__"
+        }
+    },
     "urls": {
-        "about": "__NOT_TRANSLATED__",
-        "contact": "__NOT_TRANSLATED__"
+        "about": "__NOT_TRANSLATED__"
     }
 }

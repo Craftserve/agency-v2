@@ -12,7 +12,7 @@ document.getElementsByClassName("logoContainer")[0].addEventListener("click", ()
         window.location.assign(`/${lang}`);
         return;
     }
-
+    
     window.location.assign(`/`);
 });
 
