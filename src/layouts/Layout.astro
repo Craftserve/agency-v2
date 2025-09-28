@@ -29,15 +29,15 @@ import Navbar from "../sections/Navbar.astro";
             import { getLangForRedirect } from "../i18n/utils";
             const lang = getLangForRedirect(new URL(window.location.href));
 
-            const userLang = navigator.language || "pl";
+            const userLang = localStorage.getItem("lang") || navigator.language || "pl";
 
             if (!userLang.startsWith("pl") && lang !== "en") {
-                const meta = document.createElement("meta");
-                meta.httpEquiv = "refresh";
-                meta.content = "0;url=/en/";
-                document.head.appendChild(meta);
+              const meta = document.createElement("meta");
+              meta.httpEquiv = "refresh";
+              meta.content = `0;url=/en/`;
+              document.head.appendChild(meta);
             }
-        </script>
+      </script>
     </body>
 </html>
 

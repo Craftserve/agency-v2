@@ -21,17 +21,11 @@ const mapping = {
 
 <div class="wrapper">
     <div class="infoContainer">
-        <span class="title">
-            {
-                headerContent.map((chunk) => {
-                    return (
-                        <>
-                            {chunk} <br />
-                        </>
-                    );
-                })
-            }
-        </span>
+        <h1 class="title">
+            {headerContent.map((chunk: string) => {
+                return <>{chunk} <br /></>
+            })}
+        </h1>
         <div class="buttonsContainer">
             <Link variant="primary" href={routes[0].url}>
                 <Icon name="uil:phone" width={30} height={30} />
@@ -57,7 +51,7 @@ const mapping = {
         position: relative;
         padding: 20px;
         z-index: 1;
-        width: 90%;
+        width: calc(90% - 10px);
         margin-bottom: 30px;
     }
 
@@ -79,6 +73,7 @@ const mapping = {
         font-size: 50pt;
         font-weight: 700;
         letter-spacing: -2px;
+        margin: 0;
     }
 
     .imageContainer {

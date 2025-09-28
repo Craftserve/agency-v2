@@ -65,40 +65,99 @@ const contentData: (IconItem | ImageItem)[] = [
 
 <div class="container">
     <div class="item-wrapper">
-        {
-            contentData.map((item, index) =>
-                index < 4 ? (
-                    <div class="item">
-                        <Icon name={item.iconName} class="icon" />
-                        {index === 0 ? <span class="styledText">{item.text}</span> : <span>{item.text}</span>}
-                    </div>
-                ) : (
-                    ""
-                )
+          {contentData.map((item, index) =>
+            index < 4 ? (
+                <div class="item">
+                    <Icon name={item.iconName} class="icon"/>        
+                    {index === 0 ? <p class="styledText styledParagraph">{item.text}</p> : <p class="styledParagraph">{item.text}</p>}
+                </div>
+            ) : (
+                ""
             )
-        }
+        )}
     </div>
     <div class="item-wrapper">
-        {
-            contentData.map((item, index) =>
-                index >= 4 ? (
-                    <div class="item">
-                        {item.type === "image" ? (
-                            <Image src={item.iconName} class="icon" alt="star icon" />
-                        ) : (
-                            <Icon name={item.iconName} class="icon" />
-                        )}
-                        <span>{item.text}</span>
-                    </div>
-                ) : (
-                    ""
-                )
-            )
-        }
-    </div>
+        {contentData.map((item, index) =>
+            index >= 4 ? (
+                <div class="item">
+                {item.type === "image" ? (
+                <Image src={item.iconName} class="icon" alt="star icon" />
+            ) : (
+                <Icon name={item.iconName} class="icon" />
+            )}
+                <p class="styledParagraph">{item.text}</p>
+                </div>
+            ) : ""
+        )}
+</div>
 </div>
 
 <style>
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 20px 0px;
+    max-width: 1000px;
+    height: 100%;
+    gap: 30px;
+    padding: 20px 0px;
+    z-index: 1;
+}
+
+.item-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: 50%;
+}
+
+.item {
+    height: 100%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: bold;
+
+    span {
+        text-align: center;
+    }
+}
+
+.icon {
+    height: 5rem;
+    width: 5rem;
+}
+
+.styledParagraph{
+    margin: 0;
+    text-align: center;
+}
+
+.styledText {
+    text-align: center;
+    position: relative;
+}
+
+.styledText::before {
+    content: "";
+    position: absolute;
+    top: 22px;
+    left: 35px;
+    height: 30px;
+    width: 155px;
+    background-color: #6809EE1A;
+    transform: rotate(-7deg);
+}
+
+@media only screen and (max-width: 768px){
     .container {
         display: flex;
         flex-direction: column;
