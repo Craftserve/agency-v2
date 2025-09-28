@@ -2,6 +2,7 @@
 import { Icon } from "astro-icon/components";
 import Image from "astro/components/Image.astro";
 import star from "../assets/star.svg";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 type IconItem = {
     type: "icon";
@@ -15,46 +16,49 @@ type ImageItem = {
     text: string;
 };
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const contentData: (IconItem | ImageItem)[] = [
     {
         type: "icon",
         iconName: "tabler:infinity",
-        text: "Idealne dla freelancerów",
+        text: t("iconsSection.perfect"),
     },
     {
         type: "icon",
         iconName: "tabler:clock",
-        text: "Szybki czas realizacji usług",
+        text: t("iconsSection.time"),
     },
     {
         type: "icon",
         iconName: "tabler:infinity",
-        text: "Idealne dla freelancerów",
+        text: t("iconsSection.perfect"),
     },
     {
         type: "icon",
         iconName: "tabler:clock",
-        text: "Szybki czas realizacji usług",
+        text: t("iconsSection.perfect"),
     },
     {
         type: "image",
         iconName: star,
-        text: "Idealne dla freelancerów",
+        text: t("iconsSection.perfect"),
     },
     {
         type: "icon",
         iconName: "tabler:clock",
-        text: "Szybki czas realizacji usług",
+        text: t("iconsSection.time"),
     },
     {
         type: "icon",
         iconName: "tabler:infinity",
-        text: "Idealne dla freelancerów",
+        text: t("iconsSection.perfect"),
     },
     {
         type: "icon",
         iconName: "tabler:clock",
-        text: "Szybki czas realizacji usług",
+        text: t("iconsSection.time"),
     },
 ];
 ---
