@@ -107,9 +107,9 @@ const routes = getRoutes(Astro.url);
         }
 
         .hamburger-menu {
-            background-color: var(--secondaryLight);
+            background-color: var(--light);
             width: 100%;
-            position: fixed;
+            position: absolute;
             top: 66px;
             right: 0;
             overflow: hidden;
@@ -123,5 +123,7 @@ const routes = getRoutes(Astro.url);
 
     .hamburger-menu-open {
         max-height: 999px;
+        border-bottom: 1px solid var(--secondaryLight);
+        padding-bottom: 10px;
     }
 </style>

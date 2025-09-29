@@ -1,6 +1,10 @@
 import { langs } from "../i18n/ui";
 import { getLangForRedirect, getLangFromUrl } from "../i18n/utils";
 
+document.getElementById("hamburger-link")?.addEventListener("click", () => {
+    document.getElementsByClassName("hamburger-menu")[0].classList.toggle("hamburger-menu-open");
+})
+
 document.getElementsByClassName("hamburger-button")[0].addEventListener("click", () => {
     document.getElementsByClassName("hamburger-menu")[0].classList.toggle("hamburger-menu-open");
 });

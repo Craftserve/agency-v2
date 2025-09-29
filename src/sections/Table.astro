@@ -1,4 +1,7 @@
 ---
+import { Icon } from "astro-icon/components";
+import Button from "../components/Button.astro";
+
 
 ---
 
@@ -27,35 +30,57 @@
             <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
         </div>
     </div>
-    <div class="layer">
-        <div class="card">
-            <p style="font-weight: 400;">Lorem ipsum</p>
-            <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+    <div class="mobile mobileOff">
+        <div class="layer">
+            <div class="card">
+                <p style="font-weight: 400;">Lorem ipsum</p>
+                <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+            </div>
+            <div class="card">
+                <p style="font-weight: 400;">Lorem ipsum</p>
+                <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+            </div>
+            <div class="card">
+                <p style="font-weight: 400;">Lorem ipsum</p>
+                <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+            </div>
         </div>
-        <div class="card">
-            <p style="font-weight: 400;">Lorem ipsum</p>
-            <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
-        </div>
-        <div class="card">
-            <p style="font-weight: 400;">Lorem ipsum</p>
-            <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+        <div class="layer">
+            <div class="card">
+                <p style="font-weight: 400;">Lorem ipsum</p>
+                <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+            </div>
+            <div class="card">
+                <p style="font-weight: 400;">Lorem ipsum</p>
+                <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+            </div>
+            <div class="card">
+                <p style="font-weight: 400;">Lorem ipsum</p>
+                <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+            </div>
         </div>
     </div>
-    <div class="layer">
-        <div class="card">
-            <p style="font-weight: 400;">Lorem ipsum</p>
-            <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
-        </div>
-        <div class="card">
-            <p style="font-weight: 400;">Lorem ipsum</p>
-            <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
-        </div>
-        <div class="card">
-            <p style="font-weight: 400;">Lorem ipsum</p>
-            <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
-        </div>
+    
+    <div class="showMoreContainer mobileOn">
+        <Button id="showMoreBtn" variant="outlined" type="button">
+            <Icon name="uil:arrow-down" id="showMoreIcon" width={20} height={20} />
+        </Button>
     </div>
 </section>
+
+<script>
+    const showMoreOnMobileBtn = document.querySelector("#showMoreBtn");
+    const showMoreIcon = document.querySelector("#showMoreIcon");
+
+    showMoreOnMobileBtn?.addEventListener("click", () => {
+        const mobileOffComponents = document.getElementsByClassName("mobile");
+        
+        Array.prototype.forEach.call(mobileOffComponents, (component) => {
+            component.classList.toggle("mobileOff");
+            showMoreIcon?.classList.toggle("rotate");
+        })
+    })
+</script>
 
 <style>
     p{
@@ -76,6 +101,18 @@
         align-items: center;
         justify-content: space-around;
         min-height: 200px;
+    }
+
+    .showMoreContainer{
+        width: 100px;
+    }
+
+    .mobileOn{
+        display: none;
+    }
+
+    .rotate{
+        transform: rotateZ(180deg);
     }
 
     .card {
@@ -170,10 +207,6 @@
             max-width: unset;
         }
 
-        .layer:last-child > .card:last-child {
-            border: unset;
-        }
-
         .card > p{
             text-align: center;
         }
@@ -186,9 +219,25 @@
     }
 
     @media only screen and (max-width: 600px){
+        .tableLayout{
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
         .layer{
             flex-direction: column;
             gap: 10px;
+        }
+
+        .mobileOff{
+            display: none;
+        }
+
+        .mobileOn{
+            display: block;
+            margin-top: 20px;
         }
     }
 </style>

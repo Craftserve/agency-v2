@@ -39,7 +39,7 @@ export function getRoutes(url: URL){
   return [
     {
         name: t("links.contact"),
-        url: `#formSection`
+        url: `/${lang != defaultLang ? lang+"/" : ""}#formSection`
     },
     {
         name: t("links.about"),

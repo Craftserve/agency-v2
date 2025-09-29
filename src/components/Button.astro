@@ -21,6 +21,18 @@ const buttonClass = variantClassMap[variant] ?? "outlined";
 </button>
 
 <style define:vars={{ fontSize }}>
+    .button {
+        border-radius: 10px;
+        border: none;
+        padding: 15px 30px;
+        cursor: pointer;
+        font-weight: 700;
+        width: 100%;
+
+        font-size: var(--fontSize);
+        font-family: var(--font-ubuntu);
+    }
+
     .dark {
         color: var(--light);
         background-color: var(--dark);
@@ -38,15 +50,5 @@ const buttonClass = variantClassMap[variant] ?? "outlined";
         border: 2px solid var(--primary);
     }
 
-    .button {
-        border-radius: 10px;
-        border: none;
-        padding: 15px 30px;
-        cursor: pointer;
-        font-weight: 700;
-        width: 100%;
-
-        font-size: var(--fontSize);
-        font-family: var(--font-ubuntu);
-    }
+    
 </style>
