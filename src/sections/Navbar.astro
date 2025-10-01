@@ -15,16 +15,16 @@ const routes = getRoutes(Astro.url);
     <div class="wrapper">
         <button class="logoContainer">
             <Image src={LogoDark} alt="Logo" width={40} height={40}/>
-            <h1 style="font-weight: 700; font-size: medium;">Vitresoft</h1>
+            <p style="font-weight: 700; font-size: medium;">Vitresoft</p>
         </button>
     
-
         <div class="hamburger-menu">
             {routes.map((route) => {
                 return <Link variant="blank" href={route.url}>{route.name}</Link>
             })}
             <button class="languageSection" id="langSwitch">
-                <span style="font-weight: 700;">{t("language")}</span>
+                <!-- t("language.current") -->
+                <span style="font-weight: 700;">{t("language.current")}</span>
                 <Icon name="uil:globe" width={25} height={25} />
             </button>
         </div>
@@ -107,12 +107,11 @@ const routes = getRoutes(Astro.url);
         }
 
         .hamburger-menu {
-            background-color: var(--secondaryLight);
+            background-color: var(--light);
             width: 100%;
-            position: fixed;
+            position: absolute;
             top: 66px;
             right: 0;
-            origin: top;
             overflow: hidden;
             max-height: 0px;
             transition: 0.6s;
@@ -124,5 +123,7 @@ const routes = getRoutes(Astro.url);
 
     .hamburger-menu-open {
         max-height: 999px;
+        border-bottom: 1px solid var(--secondaryLight);
+        padding-bottom: 10px;
     }
 </style>

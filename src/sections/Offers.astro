@@ -1,28 +1,38 @@
 ---
 import Card from "../components/Card.astro";
 import Row from "../components/Row.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const rowData = [
-    { id: 1, title: "Event management", text: "from £2,000" },
-    { id: 2, title: "Event management", text: "from £2,000" },
-    { id: 3, title: "Event management", text: "from £2,000" },
-    { id: 4, title: "Event management", text: "from £2,000" },
-    { id: 5, title: "Event management", text: "from £2,000" },
+    { id: 1, title: t("offers.offer1.header"), text: t("offers.offer1.price") },
+    { id: 2, title: t("offers.offer2.header"), text: t("offers.offer2.price") },
+    { id: 3, title: t("offers.offer3.header"), text: t("offers.offer3.price") },
+    { id: 4, title: t("offers.offer4.header"), text: t("offers.offer4.price") },
+    { id: 5, title: t("offers.offer5.header"), text: t("offers.offer5.price") },
 ];
 ---
 
-<div class="wrapper">
+<section class="wrapper">
     <div class="imageWrapper"></div>
     <div class="firstCard card">
-        <Card variant="dark" title="Lorem ipsum" styles="max-width: 250px;">
-            <p>Sketch circle, ellipse, oval. Circular doodle frame, hand drawn pen stroke</p>
-            <p>Sketch circle, ellipse, oval. Circular doodle frame, hand drawn pen stroke</p>
+        <!-- t("offers.card1.title") -->
+        <Card variant="dark" title={t("offers.card1.title")} styles="max-width: 250px;">
+            <!-- t("offers.card1.paragraph1") -->
+            <!-- t("offers.card1.paragraph2") -->
+            <p>{t("offers.card1.paragraph1")}</p>
+            <p>{t("offers.card1.paragraph2")}</p>
         </Card>
     </div>
     <div class="secondCard card">
-        <Card variant="light" title="Lorem ipsum" styles="max-width: 250px;">
-            <p>Sketch circle, ellipse, oval. Circular doodle frame, hand drawn pen stroke</p>
-            <p>Sketch circle, ellipse, oval. Circular doodle frame, hand drawn pen stroke</p>  
+        <!-- t("offers.card2.title") -->
+        <Card variant="light" title={t("offers.card2.title")} styles="max-width: 250px;">
+            <!-- t("offers.card2.paragraph1") -->
+            <!-- t("offers.card2.paragraph2") -->
+            <p>{t("offers.card2.paragraph1")}</p>
+            <p>{t("offers.card2.paragraph2")}</p>  
         </Card>
     </div>
     <div class="thirdCard card">
@@ -41,7 +51,7 @@ const rowData = [
             </div>
         </Card>
     </div>
-</div>
+</section>
 
 <style>
     p{

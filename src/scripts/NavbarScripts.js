@@ -1,6 +1,10 @@
 import { langs } from "../i18n/ui.ts";
 import { getLangFromUrl } from "../i18n/utils";
 
+document.getElementById("hamburger-link")?.addEventListener("click", () => {
+    document.getElementsByClassName("hamburger-menu")[0].classList.toggle("hamburger-menu-open");
+})
+
 document.getElementsByClassName("hamburger-button")[0].addEventListener("click", () => {
     document.getElementsByClassName("hamburger-menu")[0].classList.toggle("hamburger-menu-open");
 });
@@ -12,7 +16,7 @@ document.getElementsByClassName("logoContainer")[0].addEventListener("click", ()
         window.location.assign(`/${lang}`);
         return;
     }
-
+    
     window.location.assign(`/`);
 });
 

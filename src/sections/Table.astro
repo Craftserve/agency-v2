@@ -1,8 +1,11 @@
 ---
+import { Icon } from "astro-icon/components";
+import Button from "../components/Button.astro";
+
 
 ---
 
-<div class="tableLayout">
+<section class="tableLayout">
     <div class="vertical">
         <div class="line line1"></div>
         <div class="line line2"></div>
@@ -15,52 +18,75 @@
     </div>
     <div class="layer">
         <div class="card">
-            <p style="font-weight: 400; width: 100%;">Lorem ipsum</p>
-            <p style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+            <p style="font-weight: 400;">Lorem ipsum</p>
+            <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
         </div>
         <div class="card">
-            <p style="font-weight: 400; width: 100%;">Lorem ipsum</p>
-            <p style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+            <p style="font-weight: 400;">Lorem ipsum</p>
+            <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
         </div>
         <div class="card">
-            <p style="font-weight: 400; width: 100%;">Lorem ipsum</p>
-            <p style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+            <p style="font-weight: 400;">Lorem ipsum</p>
+            <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
         </div>
     </div>
-    <div class="layer">
-        <div class="card">
-            <p style="font-weight: 400; width: 100%;">Lorem ipsum</p>
-            <p style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+    <div class="mobile mobileOff">
+        <div class="layer">
+            <div class="card">
+                <p style="font-weight: 400;">Lorem ipsum</p>
+                <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+            </div>
+            <div class="card">
+                <p style="font-weight: 400;">Lorem ipsum</p>
+                <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+            </div>
+            <div class="card">
+                <p style="font-weight: 400;">Lorem ipsum</p>
+                <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+            </div>
         </div>
-        <div class="card">
-            <p style="font-weight: 400; width: 100%;">Lorem ipsum</p>
-            <p style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
-        </div>
-        <div class="card">
-            <p style="font-weight: 400; width: 100%;">Lorem ipsum</p>
-            <p style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+        <div class="layer">
+            <div class="card">
+                <p style="font-weight: 400;">Lorem ipsum</p>
+                <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+            </div>
+            <div class="card">
+                <p style="font-weight: 400;">Lorem ipsum</p>
+                <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+            </div>
+            <div class="card">
+                <p style="font-weight: 400;">Lorem ipsum</p>
+                <p style="font-weight: 300;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
+            </div>
         </div>
     </div>
-    <div class="layer">
-        <div class="card">
-            <p style="font-weight: 400; width: 100%;">Lorem ipsum</p>
-            <p style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
-        </div>
-        <div class="card">
-            <p style="font-weight: 400; width: 100%;">Lorem ipsum</p>
-            <p style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
-        </div>
-        <div class="card">
-            <p style="font-weight: 400; width: 100%;">Lorem ipsum</p>
-            <p style="font-weight: 300; width: 100%;">Glassmorphism is a design <br /> Glassmorphism is a design <br /> Glassmorphism is a design </p>
-        </div>
+    
+    <div class="showMoreContainer mobileOn">
+        <Button id="showMoreBtn" variant="outlined" type="button">
+            <Icon name="uil:arrow-down" id="showMoreIcon" width={20} height={20} />
+        </Button>
     </div>
-</div>
+</section>
+
+<script>
+    const showMoreOnMobileBtn = document.querySelector("#showMoreBtn");
+    const showMoreIcon = document.querySelector("#showMoreIcon");
+
+    showMoreOnMobileBtn?.addEventListener("click", () => {
+        const mobileOffComponents = document.getElementsByClassName("mobile");
+        
+        Array.prototype.forEach.call(mobileOffComponents, (component) => {
+            component.classList.toggle("mobileOff");
+            showMoreIcon?.classList.toggle("rotate");
+        })
+    })
+</script>
 
 <style>
     p{
         margin: 0;
         padding: 0;
+        width: 200px;
     }
 
     .tableLayout{
@@ -77,8 +103,19 @@
         min-height: 200px;
     }
 
+    .showMoreContainer{
+        width: 100px;
+    }
+
+    .mobileOn{
+        display: none;
+    }
+
+    .rotate{
+        transform: rotateZ(180deg);
+    }
+
     .card {
-        min-width: 200px;
         max-width: 30%;
         height: 100%;
         display: flex;
@@ -137,9 +174,15 @@
     }
 
     @media only screen and (max-width: 1100px){
+
+        p{
+            font-size: 0.9rem;
+        }
+
         .layer{
-            flex-direction: column;
+            flex-direction: row;
             gap: 10px;
+            justify-content: space-center;
         }
 
         .vertical {
@@ -156,21 +199,45 @@
 
         .card{
             padding: 20px 0px;
-            width: calc(100% - 20px);
+            width: calc(30% - 20px);
             border-width: 0px;
             border-bottom-width: 1px;
             border-style: solid;
-            border-image: linear-gradient(to right, transparent 20%, rgba(131, 131, 131, 1), transparent 80%) 1;
+            border-image: linear-gradient(to right, transparent 5%, rgba(131, 131, 131, 1), transparent 95%) 1;
             max-width: unset;
         }
 
-        .layer:last-child > .card:last-child {
-            border: unset;
+        .card > p{
+            text-align: center;
+        }
+    }
+
+    @media only screen and (max-width: 700px){
+        .layer{
+            justify-content: space-evenly;
+        }
+    }
+
+    @media only screen and (max-width: 600px){
+        .tableLayout{
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .layer{
+            flex-direction: column;
+            gap: 10px;
         }
 
-        .card > p{
-            max-width: 60%;
-            text-align: center;
+        .mobileOff{
+            display: none;
+        }
+
+        .mobileOn{
+            display: block;
+            margin-top: 20px;
         }
     }
 </style>

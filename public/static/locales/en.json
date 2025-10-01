@@ -1,10 +1,26 @@
 {
+    "contactForm": {
+        "company": "Company",
+        "content": "Content",
+        "description": "You will receive a response at the provided email address within 24 hours. We will address all your questions and propose solutions tailored to the specified budget.",
+        "email": "E-mail",
+        "error": "Please ensure all required fields are filled out correctly before submitting.",
+        "name": "Name",
+        "phone": "Phone",
+        "send": "Send",
+        "subject": "Subject",
+        "surname": "Surname",
+        "title": "Achieve your company’s goals with Vitresoft."
+    },
     "hero": {
         "header": "Today is your| day to grow| in ideas."
     },
     "iconsSection": {
         "perfect": "Perfect for freelancers",
         "time": "Quick service delivery time"
+    },
+    "language": {
+        "current": "EN"
     },
     "links": {
         "about": "About",
@@ -13,8 +29,39 @@
         "joinus": "Join us",
         "learnmore": "learn more"
     },
+    "offers": {
+        "card1": {
+            "paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mi nunc, condimentum vitae lectus eget, dapibus luctus ex.",
+            "paragraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mi nunc, condimentum vitae lectus eget, dapibus luctus ex.",
+            "title": "Lorem Ipsum"
+        },
+        "card2": {
+            "paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mi nunc, condimentum vitae lectus eget, dapibus luctus ex.",
+            "paragraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mi nunc, condimentum vitae lectus eget, dapibus luctus ex.",
+            "title": "Lorem Ipsum"
+        },
+        "offer1": {
+            "header": "Event Planning",
+            "price": "from 200 USD"
+        },
+        "offer2": {
+            "header": "Event Planning",
+            "price": "from 200 USD"
+        },
+        "offer3": {
+            "header": "Event Planning",
+            "price": "from 200 USD"
+        },
+        "offer4": {
+            "header": "Event Planning",
+            "price": "from 200 USD"
+        },
+        "offer5": {
+            "header": "Event Planning",
+            "price": "from 200 USD"
+        }
+    },
     "urls": {
-        "about": "about",
-        "contact": "contact"
+        "about": "about"
     }
 }

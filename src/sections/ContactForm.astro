@@ -13,10 +13,12 @@ const t = useTranslations(lang);
 
 ---
 
-<div class="wrapper" id="formSection">
+<section class="wrapper" id="formSection">
     <div class="infoWrapper">
-        <h2 class="infoTitle">{t("formTitle")}</h2>
-        <p class="infoDesc">{t("formDesc")}</p>
+        <!-- t("contactForm.title") -->
+         <!-- t("contactForm.description") -->
+        <h2 class="infoTitle">{t("contactForm.title")}</h2>
+        <p class="infoDesc">{t("contactForm.description")}</p>
         <Image class="infoImage" src={starsIconGroupWhite} alt="stars" width={500} />
     </div>
     <div class="formWrapper">
@@ -27,37 +29,45 @@ const t = useTranslations(lang);
             <div class="formSections">
                 <div class="formTopSection">
                     <div class="formTopSectionInput">
-                        <Input type="text" placeholder={t("name")} name="name" />
+                        <!-- t("contactForm.name") -->
+                        <Input type="text" placeholder={t("contactForm.name")} name="name" />
                     </div>
                     <div class="formTopSectionInput">
-                        <Input type="text" placeholder={t("surname")} name="surname" />
+                        <!-- t("contactForm.surname") -->
+                        <Input type="text" placeholder={t("contactForm.surname")} name="surname" />
                     </div>
                     <div class="formTopSectionInput">
+                        <!-- t("contactForm.phone") -->
                         <Input 
                             type="tel" 
-                            placeholder={t("phone")}
+                            placeholder={t("contactForm.phone")}
                             name="phone"
                         />
                     </div>
                     <div class="formTopSectionInput">
-                        <Input type="text" placeholder={t("subject")} name="subject" />
+                        <!-- t("contactForm.subject") -->
+                        <Input type="text" placeholder={t("contactForm.subject")} name="subject" />
                     </div>
                 </div>
                 <div class="formBottomSection">
+                    <!-- t("contactForm.email") -->
                     <Input 
                         type="email" 
-                        placeholder={t("email")} 
+                        placeholder={t("contactForm.email")} 
                         name="email" 
                     />
-                    <Input type="text" placeholder={t("company")} name="company" />
-                    <Textarea placeholder={t("content")} name="content" />
+                    <!-- t("contactForm.company") -->
+                    <Input type="text" placeholder={t("contactForm.company")} name="company" />
+                    <!-- t("contactForm.content") -->
+                    <Textarea placeholder={t("contactForm.content")} name="content" />
                 </div>
             </div>
             <div class="errorMessageContainer">
                 <span id="errorMessage"></span>
             </div>
             <div class="formButtonContainer">
-                <Button variant="primary" type="submit" id="formSubmitButton">{t("send")}</Button>
+                <!-- t("contactForm.send") -->
+                <Button variant="primary" type="submit" id="formSubmitButton">{t("contactForm.send")}</Button>
             </div>
         </form>
     </div>
@@ -75,12 +85,16 @@ const t = useTranslations(lang);
             ul. Pana Balcera 6/88 20-631 Lublin
         </li>
     </ul>
-</div>
+</section>
 
 <script>
     import { type FormFields} from "../types.ts";
     import { sendTicket } from "../scripts/api.ts";
     import { validateContactForm } from "../scripts/helpers.ts"
+    import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+    const lang = getLangFromUrl(new URL(window.location.href));
+    const t = useTranslations(lang);
 
     const form = document.getElementById("form") as HTMLFormElement;
     const errorMessageSpan = document.getElementById("errorMessage");
@@ -94,11 +108,11 @@ const t = useTranslations(lang);
         const validation = validateContactForm(data);
 
         if(!validation && errorMessageSpan != null){
-            errorMessageSpan.innerText = "Please ensure all required fields are filled out correctly before submitting.";
+            errorMessageSpan.innerText = t("contactForm.error");
             return;
         }
 
-        const response = await sendTicket(data); 
+        const response = await sendTicket(data);
 
         // if response is positive, change the view to "sent form view"
     })
@@ -161,7 +175,7 @@ const t = useTranslations(lang);
         font-weight: 400;
         font-size: 18px;
         color: var(--secondaryText);
-        opacity: 0.7;
+        opacity: 1;
         text-align: center;
         margin: 0;
     }
@@ -277,7 +291,7 @@ const t = useTranslations(lang);
 
     @media only screen and (max-width: 1115px){
         .wrapper{
-            width: 80%;
+            width: 70%;
             height:unset;
             padding: 30px;
             gap: 30px;
@@ -290,6 +304,10 @@ const t = useTranslations(lang);
 
         .infoWrapper, .contactWrapper, .formWrapper{
             width: 100%;
+        }
+
+        .formTopSection{
+            gap: 5px;
         }
     }
 </style>
